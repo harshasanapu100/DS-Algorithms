@@ -195,6 +195,27 @@ namespace CustomLibrary
             }
         }
 
+        public void DeleteAll()
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            else
+            {
+                var current = head;
+                while (current != null)
+                {
+                    var temp = this.head;
+                    current = current.next;
+                    temp = null;
+                }
+
+                head = current;
+                Console.WriteLine("All nodes are deleted successfully.");
+            }
+        }
+
         #endregion
 
         #region private methods

@@ -41,6 +41,11 @@ namespace ConsoleApp
             singleLinkedList.RemoveLast();
             singleLinkedList.Print();
 
+            Console.WriteLine();
+            Console.WriteLine("Effect of Delete All");
+            singleLinkedList.DeleteAll();
+            singleLinkedList.Print();
+
             Console.ReadKey();
         }
     }
