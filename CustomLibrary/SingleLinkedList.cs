@@ -82,7 +82,7 @@ namespace CustomLibrary
                 {
                     throw new ArgumentException("Position should be >= 1");
                 }
-                else if(position == 1)
+                else if (position == 1)
                 {
                     node.next = head;
                     head = node;
@@ -100,7 +100,7 @@ namespace CustomLibrary
                         }
                     }
 
-                    if(current!= null)
+                    if (current != null)
                     {
                         node.next = current.next;
                         current.next = node;
@@ -114,12 +114,110 @@ namespace CustomLibrary
 
             length++;
         }
+
+        public void RemoveFirst()
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            else if (head == tail)
+            {
+                head = tail = null;
+            }
+            else
+            {
+                var second = head.next;
+                head.next = null;
+                head = second;
+            }
+        }
+
+        public void RemoveLast()
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            else if (head == tail)
+            {
+                head = tail = null;
+            }
+            else
+            {
+                var previous = GetPreviousNode(tail);
+                tail = previous;
+                tail.next = null;
+            }
+        }
+
+        public void RemoveAt(int position)
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            else
+            {
+                if (position < 1)
+                {
+                    throw new ArgumentException("Position should be >= 1");
+                }
+                else if (position == 1)
+                {
+                    var second = head.next;
+                    head.next = null;
+                    head = second;
+                }
+                else
+                {
+                    var current = head;
+
+                    for (int i = 1; i < position - 1; i++)
+                    {
+                        if (current != null)
+                        {
+                            current = current.next;
+                        }
+                    }
+
+                    if (current != null && current.next != null)
+                    {
+                        var nodeToDelete = current.next;
+                        current.next = current.next.next;
+                        nodeToDelete = null;
+                    }
+                    else
+                    {
+                        Console.WriteLine("The node is already null.");
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region private methods
         private bool IsEmpty()
         {
             return head == null;
+        }
+
+        private Node GetPreviousNode(Node node)
+        {
+            var current = head;
+
+            while (current != null)
+            {
+                if (current.next == node)
+                {
+                    return current;
+                }
+
+                current = current.next;
+            }
+
+            return null;
         }
         #endregion
     }

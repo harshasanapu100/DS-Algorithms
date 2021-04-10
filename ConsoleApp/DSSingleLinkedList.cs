@@ -25,6 +25,22 @@ namespace ConsoleApp
             singleLinkedList.AddAt(25,3);
             singleLinkedList.Print();
 
+            Console.WriteLine();
+            Console.WriteLine("Effect of Remove At Position(3) value(25)");
+            singleLinkedList.RemoveAt(3);
+            singleLinkedList.Print();
+
+
+            Console.WriteLine();
+            Console.WriteLine("Effect of Remove First(10)");
+            singleLinkedList.RemoveFirst();
+            singleLinkedList.Print();
+
+            Console.WriteLine();
+            Console.WriteLine("Effect of Remove Last(50)");
+            singleLinkedList.RemoveLast();
+            singleLinkedList.Print();
+
             Console.ReadKey();
         }
     }
