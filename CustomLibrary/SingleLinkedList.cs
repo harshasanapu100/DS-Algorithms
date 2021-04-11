@@ -131,6 +131,8 @@ namespace CustomLibrary
                 head.next = null;
                 head = second;
             }
+
+            length--;
         }
 
         public void RemoveLast()
@@ -149,6 +151,8 @@ namespace CustomLibrary
                 tail = previous;
                 tail.next = null;
             }
+
+            length--;
         }
 
         public void RemoveAt(int position)
@@ -168,6 +172,7 @@ namespace CustomLibrary
                     var second = head.next;
                     head.next = null;
                     head = second;
+                    length--;
                 }
                 else
                 {
@@ -186,6 +191,7 @@ namespace CustomLibrary
                         var nodeToDelete = current.next;
                         current.next = current.next.next;
                         nodeToDelete = null;
+                        length--;
                     }
                     else
                     {
@@ -203,7 +209,6 @@ namespace CustomLibrary
             }
             else
             {
-
                 while (head != null)
                 {
                     var temp = head;
@@ -211,9 +216,12 @@ namespace CustomLibrary
                     temp = null;
                 }
 
+                length = 0;
                 Console.WriteLine("All nodes are deleted successfully.");
             }
         }
+
+
 
         #endregion
 
