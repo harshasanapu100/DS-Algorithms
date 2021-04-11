@@ -30,6 +30,10 @@ namespace ConsoleApp
             singleLinkedList.RemoveAt(3);
             singleLinkedList.Print();
 
+            Console.WriteLine();
+            Console.WriteLine("Effect of Search Node By value(25)");
+            singleLinkedList.SearchNode(25);
+            singleLinkedList.Print();
 
             Console.WriteLine();
             Console.WriteLine("Effect of Remove First(10)");
@@ -54,6 +58,27 @@ namespace ConsoleApp
             Console.WriteLine();
             Console.WriteLine("Effect of Delete Odd Nodes");
             singleLinkedList.RemoveOddNodes();
+            singleLinkedList.Print();
+
+            Console.WriteLine();
+            Console.WriteLine("Effect of Delete First Node By Value(30)");
+            singleLinkedList.RemoveFirstNodeByValue(30);
+            singleLinkedList.Print();
+
+            Console.WriteLine();
+            Console.WriteLine("Effect of Delete Last Node By Value(40)");
+            singleLinkedList.RemoveLastNodeByValue(40);
+            singleLinkedList.Print();
+
+            Console.WriteLine();
+            Console.WriteLine("Effect of Delete All Nodes By Value(30)");
+            Console.WriteLine("Adding 3 more 30's in different places");
+            singleLinkedList.AddAt(30, 5);
+            singleLinkedList.AddAt(30, 2);
+            singleLinkedList.AddAt(30, 1);
+            singleLinkedList.Print();
+            singleLinkedList.RemoveAllNodesByValue(30);
+            Console.WriteLine("After Delte");
             singleLinkedList.Print();
 
             Console.ReadKey();

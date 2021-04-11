@@ -287,6 +287,168 @@ namespace CustomLibrary
             }
 
         }
+
+        public int SearchNode(int item)
+        {
+            int index = 0;
+            var current = head;
+
+            while (current != null)
+            {
+                if (current.value == item)
+                    return index;
+
+                current = current.next;
+                index++;
+            }
+
+            return -1;
+        }
+
+        public void RemoveFirstNodeByValue(int value)
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            else if (head == tail)
+            {
+                if (head.value == value)
+                {
+                    head = tail = null;
+                    length--;
+                }
+
+            }
+            else
+            {
+                if (head.value == value)
+                {
+                    var nodetodelete = head;
+                    head = head.next;
+                    nodetodelete = null;
+                }
+                else
+                {
+                    var current = head;
+
+                    while (current.next != null)
+                    {
+                        if (current.next.value == value)
+                        {
+
+                            var nodeToDelete = current.next;
+                            current.next = current.next.next;
+                            nodeToDelete = null;
+                            length--;
+                            break;
+                        }
+                        current = current.next;
+                    }
+                }
+            }
+        }
+
+        public void RemoveLastNodeByValue(int value)
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            else if (head == tail)
+            {
+                if (head.value == value)
+                {
+                    head = tail = null;
+                    length--;
+                }
+
+            }
+            else
+            {
+                Node previousToLast = null, lastNode = null, current = head;
+
+                if (current.value == value)
+                {
+                    lastNode = current;
+                }
+                else
+                {
+                    while (current.next != null)
+                    {
+                        if (current.next.value == value)
+                        {
+                            previousToLast = current;
+                            lastNode = current.next;
+                        }
+
+                        current = current.next;
+                    }
+                }
+
+                if (lastNode != null)
+                {
+                    if (lastNode == head)
+                    {
+                        head = head.next;
+                        lastNode = null;
+                    }
+                    else
+                    {
+                        previousToLast.next = lastNode.next;
+                        lastNode = null;
+                    }
+                }
+            }
+        }
+
+        public void RemoveAllNodesByValue(int value)
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            else if (head == tail)
+            {
+                if (head.value == value)
+                {
+                    head = tail = null;
+                    length--;
+                }
+
+            }
+            else
+            {
+                Node nodeToDelete;
+
+                while (head != null && head.value == value)
+                {
+                     nodeToDelete = head;
+                    head = head.next;
+                    nodeToDelete = null;
+                }
+
+                var current = head;
+
+                if (current != null)
+                {
+                    while (current.next != null)
+                    {
+                        if (current.next.value == value)
+                        {
+                            nodeToDelete = current.next;
+                            current.next = current.next.next;
+                            nodeToDelete = null;
+                        }
+                        else
+                        {
+                            current = current.next;
+                        }
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region private methods
