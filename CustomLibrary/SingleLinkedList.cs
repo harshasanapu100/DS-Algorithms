@@ -118,10 +118,9 @@ namespace CustomLibrary
         public void RemoveFirst()
         {
             if (IsEmpty())
-            {
-                Console.WriteLine("Linked List is empty");
-            }
-            else if (head == tail)
+                throw new ArgumentException("List is empty");;
+
+            if (head == tail)
             {
                 head = tail = null;
             }
@@ -138,10 +137,9 @@ namespace CustomLibrary
         public void RemoveLast()
         {
             if (IsEmpty())
-            {
-                Console.WriteLine("Linked List is empty");
-            }
-            else if (head == tail)
+                throw new ArgumentException("List is empty");;
+
+            if (head == tail)
             {
                 head = tail = null;
             }
@@ -158,45 +156,41 @@ namespace CustomLibrary
         public void RemoveAt(int position)
         {
             if (IsEmpty())
+                throw new ArgumentException("List is empty");;
+
+            if (position < 1)
             {
-                Console.WriteLine("Linked List is empty");
+                throw new ArgumentException("Position should be >= 1");
+            }
+            else if (position == 1)
+            {
+                var second = head.next;
+                head.next = null;
+                head = second;
+                length--;
             }
             else
             {
-                if (position < 1)
+                var current = head;
+
+                for (int i = 1; i < position - 1; i++)
                 {
-                    throw new ArgumentException("Position should be >= 1");
+                    if (current != null)
+                    {
+                        current = current.next;
+                    }
                 }
-                else if (position == 1)
+
+                if (current != null && current.next != null)
                 {
-                    var second = head.next;
-                    head.next = null;
-                    head = second;
+                    var nodeToDelete = current.next;
+                    current.next = current.next.next;
+                    nodeToDelete = null;
                     length--;
                 }
                 else
                 {
-                    var current = head;
-
-                    for (int i = 1; i < position - 1; i++)
-                    {
-                        if (current != null)
-                        {
-                            current = current.next;
-                        }
-                    }
-
-                    if (current != null && current.next != null)
-                    {
-                        var nodeToDelete = current.next;
-                        current.next = current.next.next;
-                        nodeToDelete = null;
-                        length--;
-                    }
-                    else
-                    {
-                        Console.WriteLine("The node is already null.");
-                    }
+                    Console.WriteLine("The node is already null.");
                 }
             }
         }
@@ -204,30 +198,26 @@ namespace CustomLibrary
         public void RemoveAll()
         {
             if (IsEmpty())
-            {
-                Console.WriteLine("Linked List is empty");
-            }
-            else
-            {
-                while (head != null)
-                {
-                    var temp = head;
-                    head = head.next;
-                    temp = null;
-                }
+                throw new ArgumentException("List is empty");;
 
-                length = 0;
-                Console.WriteLine("All nodes are deleted successfully.");
+            while (head != null)
+            {
+                var temp = head;
+                head = head.next;
+                temp = null;
             }
+
+            length = 0;
+            Console.WriteLine("All nodes are deleted successfully.");
+
         }
 
         public void RemoveEvenNodes()
         {
             if (IsEmpty())
-            {
-                Console.WriteLine("Linked List is empty");
-            }
-            else if (head == tail)
+                throw new ArgumentException("List is empty");;
+
+            if (head == tail)
             {
                 Console.WriteLine("Linked List should contains ateast 2 nodes");
             }
@@ -254,10 +244,9 @@ namespace CustomLibrary
         public void RemoveOddNodes()
         {
             if (IsEmpty())
-            {
-                Console.WriteLine("Linked List is empty");
-            }
-            else if (head == tail)
+                throw new ArgumentException("List is empty");;
+
+            if (head == tail)
             {
                 head = tail = null;
                 length--;
@@ -290,6 +279,9 @@ namespace CustomLibrary
 
         public int FindNodeIndex(int item)
         {
+            if (IsEmpty())
+                throw new ArgumentException("List is empty");;
+
             int index = 0;
             var current = head;
 
@@ -308,10 +300,9 @@ namespace CustomLibrary
         public void RemoveFirstNodeByValue(int value)
         {
             if (IsEmpty())
-            {
-                Console.WriteLine("Linked List is empty");
-            }
-            else if (head == tail)
+                throw new ArgumentException("List is empty");;
+
+            if (head == tail)
             {
                 if (head.value == value)
                 {
@@ -352,10 +343,9 @@ namespace CustomLibrary
         public void RemoveLastNodeByValue(int value)
         {
             if (IsEmpty())
-            {
-                Console.WriteLine("Linked List is empty");
-            }
-            else if (head == tail)
+                throw new ArgumentException("List is empty");;
+
+            if (head == tail)
             {
                 if (head.value == value)
                 {
@@ -398,6 +388,8 @@ namespace CustomLibrary
                         previousToLast.next = lastNode.next;
                         lastNode = null;
                     }
+
+                    length--;
                 }
             }
         }
@@ -405,10 +397,9 @@ namespace CustomLibrary
         public void RemoveAllNodesByValue(int value)
         {
             if (IsEmpty())
-            {
-                Console.WriteLine("Linked List is empty");
-            }
-            else if (head == tail)
+                throw new ArgumentException("List is empty");;
+
+            if (head == tail)
             {
                 if (head.value == value)
                 {
@@ -423,9 +414,10 @@ namespace CustomLibrary
 
                 while (head != null && head.value == value)
                 {
-                     nodeToDelete = head;
+                    nodeToDelete = head;
                     head = head.next;
                     nodeToDelete = null;
+                    length--;
                 }
 
                 var current = head;
@@ -439,6 +431,7 @@ namespace CustomLibrary
                             nodeToDelete = current.next;
                             current.next = current.next.next;
                             nodeToDelete = null;
+                            length--;
                         }
                         else
                         {
@@ -447,6 +440,76 @@ namespace CustomLibrary
                     }
                 }
             }
+        }
+
+        public void Reverse()
+        {
+            if (IsEmpty())
+                throw new ArgumentException("List is empty");;
+
+            if (head != tail)
+            {
+                var previous = head;
+                var current = head.next;
+
+                while (current != null)
+                {
+                    var next = current.next;
+                    current.next = previous;
+
+                    previous = current;
+                    current = next;
+                }
+
+                tail = head;
+                tail.next = null;
+                head = previous;
+            }
+        }
+
+        public int GetKthNodeFromEnd(int k)
+        {
+            if (IsEmpty())
+                throw new ArgumentException("List is empty");;
+
+            var first = head;
+            var second = head;
+
+            for (int i = 0; i < k - 1; i++)
+            {
+                second = second.next;
+                if (second == null)
+                    throw new ArgumentException("Node not exists at given position");;
+            }
+
+            while (second != tail)
+            {
+                first = first.next;
+                second = second.next;
+            }
+
+            return first.value;
+        }
+
+        public void PrintMiddleNode()
+        {
+            if (IsEmpty())
+                throw new ArgumentException("List is empty");
+
+            var first = head;
+            var second = head;
+
+
+            while (second != tail && second.next != tail)
+            {
+                first = first.next;
+                second = second.next.next;
+            }
+
+            if (second == tail)
+                Console.WriteLine(first.value);
+            else
+                Console.WriteLine(first.value + "," + first.next.value);
         }
 
         #endregion
