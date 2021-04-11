@@ -288,7 +288,7 @@ namespace CustomLibrary
 
         }
 
-        public int SearchNode(int item)
+        public int FindNodeIndex(int item)
         {
             int index = 0;
             var current = head;

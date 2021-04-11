@@ -26,13 +26,13 @@ namespace ConsoleApp
             singleLinkedList.Print();
 
             Console.WriteLine();
-            Console.WriteLine("Effect of Remove At Position(3) value(25)");
-            singleLinkedList.RemoveAt(3);
-            singleLinkedList.Print();
+            Console.WriteLine("Effect of Find Node Index By value(25)");
+            int index = singleLinkedList.FindNodeIndex(25);
+            Console.WriteLine("Index of 25 is {0}", index);
 
             Console.WriteLine();
-            Console.WriteLine("Effect of Search Node By value(25)");
-            singleLinkedList.SearchNode(25);
+            Console.WriteLine("Effect of Remove At Position(3) value(25)");
+            singleLinkedList.RemoveAt(3);
             singleLinkedList.Print();
 
             Console.WriteLine();
