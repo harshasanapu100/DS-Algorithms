@@ -9,6 +9,6 @@ This solution contains 2 projects
 
 If you want to run this solution lets say you want to run LinkedList funtionality, you need to do the below 2 steps
 
-a) In ConsoleApp project open DSLinkedList class and rename main method to main.
+a) In ConsoleApp project open DSSingleLinkedList class and rename main method to main.
 
 b) In CustomLibrary project open CustomLinkedList class, it contains the implementaion deltails of LinkedList functionality 
