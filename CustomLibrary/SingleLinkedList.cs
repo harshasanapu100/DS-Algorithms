@@ -201,7 +201,7 @@ namespace CustomLibrary
             }
         }
 
-        public void DeleteAll()
+        public void RemoveAll()
         {
             if (IsEmpty())
             {
@@ -212,7 +212,7 @@ namespace CustomLibrary
                 while (head != null)
                 {
                     var temp = head;
-                    head = head.next;                
+                    head = head.next;
                     temp = null;
                 }
 
@@ -221,8 +221,72 @@ namespace CustomLibrary
             }
         }
 
+        public void RemoveEvenNodes()
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            else if (head == tail)
+            {
+                Console.WriteLine("Linked List should contains ateast 2 nodes");
+            }
+            else
+            {
+                var oddNode = head;
+                var evenNode = head.next;
 
+                while (oddNode != null && evenNode != null)
+                {
+                    oddNode.next = evenNode.next;
+                    evenNode = null;
 
+                    oddNode = oddNode.next;
+
+                    if (oddNode != null)
+                        evenNode = oddNode.next;
+
+                    length--;
+                }
+            }
+        }
+
+        public void RemoveOddNodes()
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            else if (head == tail)
+            {
+                head = tail = null;
+                length--;
+            }
+            else
+            {
+                var temp = head;
+                head = head.next;
+                temp = null;
+                length--;
+
+                var evenNode = head;
+                var oddNode = head.next;
+
+                while (oddNode != null && evenNode != null)
+                {
+                    evenNode.next = oddNode.next;
+                    oddNode = null;
+
+                    evenNode = evenNode.next;
+
+                    if (evenNode != null)
+                        oddNode = evenNode.next;
+
+                    length--;
+                }
+            }
+
+        }
         #endregion
 
         #region private methods

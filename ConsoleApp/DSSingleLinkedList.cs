@@ -31,24 +31,29 @@ namespace ConsoleApp
             singleLinkedList.Print();
 
 
-            //Console.WriteLine();
-            //Console.WriteLine("Effect of Remove First(10)");
-            //singleLinkedList.RemoveFirst();
-            //singleLinkedList.Print();
+            Console.WriteLine();
+            Console.WriteLine("Effect of Remove First(10)");
+            singleLinkedList.RemoveFirst();
+            singleLinkedList.Print();
 
-            //Console.WriteLine();
-            //Console.WriteLine("Effect of Remove Last(50)");
-            //singleLinkedList.RemoveLast();
-            //singleLinkedList.Print();
+            Console.WriteLine();
+            Console.WriteLine("Effect of Remove Last(50)");
+            singleLinkedList.RemoveLast();
+            singleLinkedList.Print();
 
-            //Console.WriteLine();
-            //Console.WriteLine("Effect of Delete All");
-            //singleLinkedList.DeleteAll();
-            //singleLinkedList.Print();
+            Console.WriteLine();
+            Console.WriteLine("Effect of Remove All");
+            singleLinkedList.RemoveAll();
+            singleLinkedList.Print();
 
             Console.WriteLine();
             Console.WriteLine("Effect of Delete Even Nodes");
-            singleLinkedList.DeleteAll();
+            singleLinkedList.RemoveEvenNodes();
+            singleLinkedList.Print();
+
+            Console.WriteLine();
+            Console.WriteLine("Effect of Delete Odd Nodes");
+            singleLinkedList.RemoveOddNodes();
             singleLinkedList.Print();
 
             Console.ReadKey();
