@@ -203,15 +203,14 @@ namespace CustomLibrary
             }
             else
             {
-                var current = head;
-                while (current != null)
+
+                while (head != null)
                 {
-                    var temp = this.head;
-                    current = current.next;
+                    var temp = head;
+                    head = head.next;                
                     temp = null;
                 }
 
-                head = current;
                 Console.WriteLine("All nodes are deleted successfully.");
             }
         }
