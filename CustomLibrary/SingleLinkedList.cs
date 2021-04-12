@@ -118,7 +118,9 @@ namespace CustomLibrary
         public void RemoveFirst()
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             if (head == tail)
             {
@@ -137,7 +139,9 @@ namespace CustomLibrary
         public void RemoveLast()
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             if (head == tail)
             {
@@ -156,7 +160,9 @@ namespace CustomLibrary
         public void RemoveAt(int position)
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             if (position < 1)
             {
@@ -198,7 +204,9 @@ namespace CustomLibrary
         public void RemoveAll()
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             while (head != null)
             {
@@ -215,7 +223,9 @@ namespace CustomLibrary
         public void RemoveEvenNodes()
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             if (head == tail)
             {
@@ -244,7 +254,9 @@ namespace CustomLibrary
         public void RemoveOddNodes()
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             if (head == tail)
             {
@@ -280,7 +292,9 @@ namespace CustomLibrary
         public int FindNodeIndex(int item)
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             int index = 0;
             var current = head;
@@ -300,7 +314,9 @@ namespace CustomLibrary
         public void RemoveFirstNodeByValue(int value)
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             if (head == tail)
             {
@@ -343,7 +359,9 @@ namespace CustomLibrary
         public void RemoveLastNodeByValue(int value)
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             if (head == tail)
             {
@@ -397,7 +415,9 @@ namespace CustomLibrary
         public void RemoveAllNodesByValue(int value)
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             if (head == tail)
             {
@@ -445,7 +465,9 @@ namespace CustomLibrary
         public void Reverse()
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             if (head != tail)
             {
@@ -470,7 +492,9 @@ namespace CustomLibrary
         public int GetKthNodeFromEnd(int k)
         {
             if (IsEmpty())
-                throw new ArgumentException("List is empty");;
+            {
+                throw new ArgumentException("List is empty");
+            }
 
             var first = head;
             var second = head;
@@ -494,7 +518,9 @@ namespace CustomLibrary
         public void PrintMiddleNode()
         {
             if (IsEmpty())
+            {
                 throw new ArgumentException("List is empty");
+            }
 
             var first = head;
             var second = head;
