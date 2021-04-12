@@ -216,6 +216,34 @@ namespace CustomLibrary
                 length--;
             }
         }
+
+        public void Reverse()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head != tail)
+            {
+                var current = head;
+                Node temp = null;
+
+                while(current != null)
+                {
+                    temp = current.prev;
+                    current.prev = current.next;
+                    current.next = temp;
+                    current = current.prev;
+                }
+
+                if(temp != null)
+                {
+                    head = temp.prev;
+                }
+            }
+        }
+
         #endregion
 
         #region private methods

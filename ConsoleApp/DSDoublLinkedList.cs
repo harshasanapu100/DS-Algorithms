@@ -10,6 +10,7 @@ namespace ConsoleApp
             try
             {
                 DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
+
                 Console.WriteLine("Effect of Add First (30,20, 10)");
                 doubleLinkedList.AddFirst(30);
                 doubleLinkedList.AddFirst(20);
@@ -28,9 +29,15 @@ namespace ConsoleApp
                 doubleLinkedList.Print();
 
                 Console.WriteLine();
-                Console.WriteLine("Effect of Remove At Position(6) value(25)");
-                doubleLinkedList.RemoveAt(6);
+                Console.WriteLine("Effect of Remove At Position(3) value(25)");
+                doubleLinkedList.RemoveAt(3);
                 doubleLinkedList.Print();
+
+                Console.WriteLine();
+                Console.WriteLine("Effect Reverse Linked List");
+                doubleLinkedList.Reverse();
+                doubleLinkedList.Print();
+                doubleLinkedList.Reverse();
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Remove First(10)");
