@@ -5,7 +5,7 @@ namespace ConsoleApp
 {
     class DSSingleLinkedList
     {
-        static void Main(string[] args)
+        static void DSSingleLinkedListMain(string[] args)
         {
             try
             {
