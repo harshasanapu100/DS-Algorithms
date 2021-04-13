@@ -158,7 +158,7 @@ namespace CustomLibrary
             }
             else
             {
-                var previous = GetPreviousNode(tail);
+                var previous = tail.prev;
                 previous.next = null;
                 tail = previous;
             }
@@ -244,6 +244,24 @@ namespace CustomLibrary
             }
         }
 
+        public void RemoveAll()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            while (head != null)
+            {
+                var nodeToDelete = head;
+                head = head.next;
+                nodeToDelete = null;
+            }
+
+            length = 0;
+            Console.WriteLine("All nodes are deleted successfully.");
+        }
+
         #endregion
 
         #region private methods
@@ -252,21 +270,6 @@ namespace CustomLibrary
             return head == null;
         }
 
-        private Node GetPreviousNode(Node node)
-        {
-            var current = head;
-
-            while (current != null)
-            {
-                if (current.next == node)
-                {
-                    return current;
-                }
-                current = current.next;
-            }
-
-            return null;
-        }
         #endregion
     }
 }

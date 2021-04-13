@@ -47,7 +47,7 @@ namespace ConsoleApp
                 singleLinkedList.PrintMiddleNode();
 
                 Console.WriteLine();
-                Console.WriteLine("Effect Reverse Linked List");
+                Console.WriteLine("Effect of Reverse Linked List");
                 singleLinkedList.Reverse();
                 singleLinkedList.Print();
                 singleLinkedList.Reverse();
@@ -56,11 +56,13 @@ namespace ConsoleApp
                 Console.WriteLine("Effect of Remove First(10)");
                 singleLinkedList.RemoveFirst();
                 singleLinkedList.Print();
+                singleLinkedList.AddFirst(10);
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Remove Last(50)");
                 singleLinkedList.RemoveLast();
                 singleLinkedList.Print();
+                singleLinkedList.AddLast(50);
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Delete Even Nodes");

@@ -210,14 +210,13 @@ namespace CustomLibrary
 
             while (head != null)
             {
-                var temp = head;
+                var nodeToDelete = head;
                 head = head.next;
-                temp = null;
+                nodeToDelete = null;
             }
 
             length = 0;
             Console.WriteLine("All nodes are deleted successfully.");
-
         }
 
         public void RemoveEvenNodes()
