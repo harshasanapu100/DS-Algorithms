@@ -38,9 +38,9 @@ namespace ConsoleApp
                 singleLinkedList.Print();
 
                 Console.WriteLine();
-                Console.WriteLine("Effect of Get Kth Node From End(30)");
-                singleLinkedList.GetKthNodeFromEnd(3);
-                singleLinkedList.Print();
+                Console.WriteLine("Effect of Get Kth Node From End( get 3rd node)");
+                int result = singleLinkedList.GetKthNodeFromEnd(3);
+                Console.WriteLine("3rd node from end is: {0}", result);
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Print Middle Node");

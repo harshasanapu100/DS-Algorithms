@@ -34,6 +34,15 @@ namespace ConsoleApp
                 doubleLinkedList.Print();
 
                 Console.WriteLine();
+                Console.WriteLine("Effect of Get Kth Node From End( get 3rd node)");
+                int result = doubleLinkedList.GetKthNodeFromEnd(3);
+                Console.WriteLine("3rd node from end is: {0}", result);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Print Middle Node");
+                doubleLinkedList.PrintMiddleNode();
+
+                Console.WriteLine();
                 Console.WriteLine("Effect of Remove First(10)");
                 doubleLinkedList.RemoveFirst();
                 doubleLinkedList.Print();

@@ -512,6 +512,56 @@ namespace CustomLibrary
                 }
             }
         }
+
+        public int GetKthNodeFromEnd(int k)
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            var first = head;
+            var second = head;
+
+            for (int i = 0; i < k - 1; i++)
+            {
+                second = second.next;
+                if (second == null)
+                    throw new ArgumentException("Node not exists at given position");
+            }
+
+            while (second != tail)
+            {
+                first = first.next;
+                second = second.next;
+            }
+
+            return first.value;
+        }
+
+        public void PrintMiddleNode()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            var first = head;
+            var second = head;
+
+
+            while (second != tail && second.next != tail)
+            {
+                first = first.next;
+                second = second.next.next;
+            }
+
+            if (second == tail)
+                Console.WriteLine(first.value);
+            else
+                Console.WriteLine(first.value + "," + first.next.value);
+        }
+
         #endregion
 
         #region private methods
