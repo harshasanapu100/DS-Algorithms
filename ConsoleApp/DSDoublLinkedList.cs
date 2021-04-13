@@ -5,7 +5,7 @@ namespace ConsoleApp
 {
     public class DSDoublLinkedList
     {
-        static void Main(string[] args)
+        static void DSDoublLinkedListMain(string[] args)
         {
             try
             {
