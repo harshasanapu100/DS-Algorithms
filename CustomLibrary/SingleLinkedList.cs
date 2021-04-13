@@ -535,6 +535,48 @@ namespace CustomLibrary
                 Console.WriteLine(first.value + "," + first.next.value);
         }
 
+        public void RemoveMiddleNode()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head == tail)
+            {
+                head = tail = null;
+            }
+            else
+            {
+                var first = head;
+                var second = head;
+                Node previous = null;
+
+                while(second != tail && second.next != tail)
+                {
+                    previous = first;
+                    first = first.next;
+                    second = second.next.next;
+                }
+
+                if(second == tail)
+                {
+                    previous.next = first.next;
+                }
+                else
+                {
+                    if(previous == null)
+                    {
+                        head = tail = null;
+                    }
+                    else
+                    {
+                        previous.next = second;  
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region private methods

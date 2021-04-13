@@ -39,8 +39,31 @@ namespace ConsoleApp
                 Console.WriteLine("3rd node from end is: {0}", result);
 
                 Console.WriteLine();
-                Console.WriteLine("Effect of Print Middle Node");
+                Console.WriteLine("Effect of Print Middle Node (when size is odd)");
                 doubleLinkedList.PrintMiddleNode();
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Print Middle Node (when size is even)");
+                Console.WriteLine("Adding 1 more node 60 at the end");
+                doubleLinkedList.AddLast(60);
+                doubleLinkedList.PrintMiddleNode();
+                doubleLinkedList.RemoveLast();
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Delete Middle Node (when size is odd)");
+                doubleLinkedList.RemoveMiddleNode();
+                doubleLinkedList.Print();
+                doubleLinkedList.AddAt(30, 3);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Delete Middle Node (when size is even)");
+                Console.WriteLine("Adding 1 more node 60 at the end");
+                doubleLinkedList.AddLast(60);
+                doubleLinkedList.RemoveMiddleNode();
+                doubleLinkedList.Print();
+                doubleLinkedList.AddAt(30, 3);
+                doubleLinkedList.AddAt(40, 4);
+                doubleLinkedList.RemoveLast();
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Remove First(10)");

@@ -378,13 +378,13 @@ namespace CustomLibrary
                 {
                     var current = head;
 
-                    while(current.next != null)
+                    while (current.next != null)
                     {
-                        if(current.next.value == value)
+                        if (current.next.value == value)
                         {
                             var nodeToDelete = current.next;
                             current.next = current.next.next;
-                            if(current.next != null)
+                            if (current.next != null)
                             {
                                 current.next.prev = current;
                             }
@@ -446,7 +446,7 @@ namespace CustomLibrary
                     else
                     {
                         previousToLast.next = lastNode.next;
-                        if(previousToLast.next != null)
+                        if (previousToLast.next != null)
                         {
                             previousToLast.next.prev = previousToLast;
                         }
@@ -497,7 +497,7 @@ namespace CustomLibrary
                         {
                             nodeToDelete = current.next;
                             current.next = current.next.next;
-                            if(current.next != null)
+                            if (current.next != null)
                             {
                                 current.next.prev = current;
                             }
@@ -560,6 +560,43 @@ namespace CustomLibrary
                 Console.WriteLine(first.value);
             else
                 Console.WriteLine(first.value + "," + first.next.value);
+        }
+
+        public void RemoveMiddleNode()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head == tail || (head.next == tail && tail.prev== head))
+            {
+                head = tail = null;
+            }
+            else
+            {
+                var first = head;
+                var second = head;
+                Node previous = null;
+
+                while (second != tail && second.next != tail)
+                {
+                    first = first.next;
+                    previous = first.prev;
+                    second = second.next.next;
+                }
+
+                if (second == tail)
+                {
+                    previous.next = first.next;
+                    previous.next.prev = first.prev;
+                }
+                else
+                {
+                    previous.next = second;
+                    previous.next.prev = first.prev;
+                }
+            }
         }
 
         #endregion
