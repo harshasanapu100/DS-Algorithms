@@ -46,10 +46,24 @@ namespace ConsoleApp
                 doubleLinkedList.AddLast(50);
 
                 Console.WriteLine();
+                Console.WriteLine("Effect of Remove Even Nodes");
+                doubleLinkedList.RemoveEvenNodes();
+                doubleLinkedList.Print();
+                doubleLinkedList.AddAt(20, 2);
+                doubleLinkedList.AddAt(40, 4);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove Odd Nodes");
+                doubleLinkedList.RemoveOddNodes();
+                doubleLinkedList.Print();
+                doubleLinkedList.AddAt(10, 1);
+                doubleLinkedList.AddAt(30, 3);
+                doubleLinkedList.AddAt(50, 5);
+
+                Console.WriteLine();
                 Console.WriteLine("Effect of Reverse Linked List");
                 doubleLinkedList.Reverse();
                 doubleLinkedList.Print();
-                doubleLinkedList.Reverse();
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Remove All");

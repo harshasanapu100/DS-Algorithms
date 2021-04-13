@@ -56,43 +56,41 @@ namespace ConsoleApp
                 Console.WriteLine("Effect of Remove First(10)");
                 singleLinkedList.RemoveFirst();
                 singleLinkedList.Print();
-                singleLinkedList.AddFirst(10);
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Remove Last(50)");
                 singleLinkedList.RemoveLast();
                 singleLinkedList.Print();
-                singleLinkedList.AddLast(50);
 
                 Console.WriteLine();
-                Console.WriteLine("Effect of Delete Even Nodes");
+                Console.WriteLine("Effect of Remove Even Nodes");
                 singleLinkedList.RemoveEvenNodes();
                 singleLinkedList.Print();
 
                 Console.WriteLine();
-                Console.WriteLine("Effect of Delete Odd Nodes");
+                Console.WriteLine("Effect of Remove Odd Nodes");
                 singleLinkedList.RemoveOddNodes();
                 singleLinkedList.Print();
 
                 Console.WriteLine();
-                Console.WriteLine("Effect of Delete First Node By Value(30)");
+                Console.WriteLine("Effect of Remove First Node By Value(30)");
                 singleLinkedList.RemoveFirstNodeByValue(30);
                 singleLinkedList.Print();
 
                 Console.WriteLine();
-                Console.WriteLine("Effect of Delete Last Node By Value(40)");
+                Console.WriteLine("Effect of Remove Last Node By Value(40)");
                 singleLinkedList.RemoveLastNodeByValue(40);
                 singleLinkedList.Print();
 
                 Console.WriteLine();
-                Console.WriteLine("Effect of Delete All Nodes By Value(30)");
+                Console.WriteLine("Effect of Remove All Nodes By Value(30)");
                 Console.WriteLine("Adding 3 more 30's in different places");
                 singleLinkedList.AddAt(30, 5);
                 singleLinkedList.AddAt(30, 2);
                 singleLinkedList.AddAt(30, 1);
                 singleLinkedList.Print();
                 singleLinkedList.RemoveAllNodesByValue(30);
-                Console.WriteLine("After Delte");
+                Console.WriteLine("After Remove");
                 singleLinkedList.Print();
 
                 Console.WriteLine();

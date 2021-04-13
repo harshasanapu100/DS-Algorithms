@@ -26,12 +26,12 @@ namespace CustomLibrary
         #region public methods
         public void Print()
         {
-            var curren = head;
+            var current = head;
 
-            while (curren != null)
+            while (current != null)
             {
-                Console.WriteLine(curren.value);
-                curren = curren.next;
+                Console.WriteLine(current.value);
+                current = current.next;
             }
         }
 
@@ -90,6 +90,7 @@ namespace CustomLibrary
                     head.prev = node;
                     node.next = head;
                     head = node;
+
                     length++;
                 }
                 else
@@ -113,6 +114,7 @@ namespace CustomLibrary
                             current.next.prev = node;
                         }
                         current.next = node;
+
                         length++;
                     }
                     else
@@ -190,7 +192,7 @@ namespace CustomLibrary
             {
                 var current = head;
 
-                for (int i = 1; i < position-1; i++)
+                for (int i = 1; i < position - 1; i++)
                 {
                     if (current != null)
                     {
@@ -229,7 +231,7 @@ namespace CustomLibrary
                 var current = head;
                 Node temp = null;
 
-                while(current != null)
+                while (current != null)
                 {
                     temp = current.prev;
                     current.prev = current.next;
@@ -237,7 +239,7 @@ namespace CustomLibrary
                     current = current.prev;
                 }
 
-                if(temp != null)
+                if (temp != null)
                 {
                     head = temp.prev;
                 }
@@ -262,6 +264,87 @@ namespace CustomLibrary
             Console.WriteLine("All nodes are deleted successfully.");
         }
 
+        public void RemoveEvenNodes()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head == tail)
+            {
+                Console.WriteLine("List should contains ateast 2 nodes");
+            }
+            else
+            {
+                var oddNode = head;
+                var evenNode = head.next;
+
+                while (oddNode != null && evenNode != null)
+                {
+                    oddNode.next = evenNode.next;
+                    evenNode = null;
+
+                    if (oddNode.next != null)
+                    {
+                        oddNode.next.prev = oddNode;
+                    }
+
+                    oddNode = oddNode.next;
+
+                    if (oddNode != null)
+                    {
+                        evenNode = oddNode.next;
+                    }
+
+                    length--;
+                }
+            }
+        }
+
+        public void RemoveOddNodes()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head == tail)
+            {
+                head = tail = null;
+                length--;
+            }
+            else
+            {
+                var temp = head;
+                head = head.next;
+                head.prev = null;
+                temp = null;
+
+                var evenNode = head;
+                var oddNode = head.next;
+
+                while (evenNode != null && oddNode != null)
+                {
+                    evenNode.next = oddNode.next;
+                    oddNode = null;
+
+                    if (evenNode.next != null)
+                    {
+                        evenNode.next.prev = evenNode;
+                    }
+
+                    evenNode = evenNode.next;
+
+                    if (evenNode != null)
+                    {
+                        oddNode = evenNode.next;
+                    }
+
+                    length--;
+                }
+            }
+        }
         #endregion
 
         #region private methods

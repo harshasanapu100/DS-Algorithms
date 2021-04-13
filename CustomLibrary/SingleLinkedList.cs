@@ -228,7 +228,7 @@ namespace CustomLibrary
 
             if (head == tail)
             {
-                Console.WriteLine("Linked List should contains ateast 2 nodes");
+                Console.WriteLine("List should contains ateast 2 nodes");
             }
             else
             {
