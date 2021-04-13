@@ -379,18 +379,16 @@ namespace CustomLibrary
                 {
                     lastNode = current;
                 }
-                else
-                {
-                    while (current.next != null)
-                    {
-                        if (current.next.value == value)
-                        {
-                            previousToLast = current;
-                            lastNode = current.next;
-                        }
 
-                        current = current.next;
+                while (current.next != null)
+                {
+                    if (current.next.value == value)
+                    {
+                        previousToLast = current;
+                        lastNode = current.next;
                     }
+
+                    current = current.next;
                 }
 
                 if (lastNode != null)
@@ -502,7 +500,7 @@ namespace CustomLibrary
             {
                 second = second.next;
                 if (second == null)
-                    throw new ArgumentException("Node not exists at given position");;
+                    throw new ArgumentException("Node not exists at given position");
             }
 
             while (second != tail)

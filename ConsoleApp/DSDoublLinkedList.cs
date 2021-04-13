@@ -61,6 +61,27 @@ namespace ConsoleApp
                 doubleLinkedList.AddAt(50, 5);
 
                 Console.WriteLine();
+                Console.WriteLine("Effect of Remove First Node By Value(30)");
+                doubleLinkedList.RemoveFirstNodeByValue(30);
+                doubleLinkedList.Print();
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove Last Node By Value(30)");
+                doubleLinkedList.RemoveLastNodeByValue(30);
+                doubleLinkedList.Print();
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove All Nodes By Value(30)");
+                Console.WriteLine("Adding 3 more 30's in different places");
+                doubleLinkedList.AddAt(30, 5);
+                doubleLinkedList.AddAt(30, 2);
+                doubleLinkedList.AddAt(30, 1);
+                doubleLinkedList.Print();
+                doubleLinkedList.RemoveAllNodesByValue(30);
+                Console.WriteLine("After Remove");
+                doubleLinkedList.Print();
+
+                Console.WriteLine();
                 Console.WriteLine("Effect of Reverse Linked List");
                 doubleLinkedList.Reverse();
                 doubleLinkedList.Print();

@@ -109,6 +109,7 @@ namespace CustomLibrary
                     {
                         node.next = current.next;
                         node.prev = current;
+
                         if (node.next != null)
                         {
                             current.next.prev = node;
@@ -342,6 +343,172 @@ namespace CustomLibrary
                     }
 
                     length--;
+                }
+            }
+        }
+
+        public void RemoveFirstNodeByValue(int value)
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head == tail)
+            {
+                if (head.value == value)
+                {
+                    head = tail = null;
+                    length--;
+                }
+
+            }
+            else
+            {
+                if (head.value == value)
+                {
+                    var second = head.next;
+                    head.next = null;
+                    second.prev = null;
+                    head = second;
+
+                    length--;
+                }
+                else
+                {
+                    var current = head;
+
+                    while(current.next != null)
+                    {
+                        if(current.next.value == value)
+                        {
+                            var nodeToDelete = current.next;
+                            current.next = current.next.next;
+                            if(current.next != null)
+                            {
+                                current.next.prev = current;
+                            }
+                            nodeToDelete = null;
+                            length--;
+                            break;
+                        }
+                        current = current.next;
+                    }
+                }
+            }
+        }
+
+        public void RemoveLastNodeByValue(int value)
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head == tail)
+            {
+                if (head.value == value)
+                {
+                    head = tail = null;
+                    length--;
+                }
+            }
+            else
+            {
+                Node previousToLast = null, lastNode = null, current = head;
+
+                if (current.value == value)
+                {
+                    lastNode = current;
+                }
+
+                while (current.next != null)
+                {
+                    if (current.next.value == value)
+                    {
+                        previousToLast = current;
+                        lastNode = current.next;
+                    }
+
+                    current = current.next;
+                }
+
+                if (lastNode != null)
+                {
+                    if (lastNode == head)
+                    {
+                        var nodeToDelete = head;
+                        head = head.next;
+                        nodeToDelete = null;
+                        head.prev = null;
+                        lastNode = null;
+                    }
+                    else
+                    {
+                        previousToLast.next = lastNode.next;
+                        if(previousToLast.next != null)
+                        {
+                            previousToLast.next.prev = previousToLast;
+                        }
+                        lastNode = null;
+                    }
+
+                    length--;
+                }
+            }
+        }
+
+        public void RemoveAllNodesByValue(int value)
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head == tail)
+            {
+                if (head.value == value)
+                {
+                    head = tail = null;
+                    length--;
+                }
+
+            }
+            else
+            {
+                Node nodeToDelete;
+
+                while (head != null && head.value == value)
+                {
+                    nodeToDelete = head;
+                    head = head.next;
+                    head.prev = null;
+                    nodeToDelete = null;
+                    length--;
+                }
+
+                var current = head;
+
+                if (current != null)
+                {
+                    while (current.next != null)
+                    {
+                        if (current.next.value == value)
+                        {
+                            nodeToDelete = current.next;
+                            current.next = current.next.next;
+                            if(current.next != null)
+                            {
+                                current.next.prev = current;
+                            }
+                            nodeToDelete = null;
+                            length--;
+                        }
+                        else
+                        {
+                            current = current.next;
+                        }
+                    }
                 }
             }
         }
