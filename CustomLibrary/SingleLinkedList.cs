@@ -86,6 +86,8 @@ namespace CustomLibrary
                 {
                     node.next = head;
                     head = node;
+
+                    length++;
                 }
                 else
                 {
@@ -104,6 +106,8 @@ namespace CustomLibrary
                     {
                         node.next = current.next;
                         current.next = node;
+
+                        length++;
                     }
                     else
                     {
@@ -112,7 +116,6 @@ namespace CustomLibrary
                 }
             }
 
-            length++;
         }
 
         public void RemoveFirst()
@@ -552,26 +555,26 @@ namespace CustomLibrary
                 var second = head;
                 Node previous = null;
 
-                while(second != tail && second.next != tail)
+                while (second != tail && second.next != tail)
                 {
                     previous = first;
                     first = first.next;
                     second = second.next.next;
                 }
 
-                if(second == tail)
+                if (second == tail)
                 {
                     previous.next = first.next;
                 }
                 else
                 {
-                    if(previous == null)
+                    if (previous == null)
                     {
                         head = tail = null;
                     }
                     else
                     {
-                        previous.next = second;  
+                        previous.next = second;
                     }
                 }
             }
