@@ -27,6 +27,23 @@ namespace ConsoleApp
                 Console.WriteLine("Effect of Add At position(3) value(25)");
                 circularSingleLinkedList.AddAt(25,3);
                 circularSingleLinkedList.Print();
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove At Position(3) value(25)");
+                circularSingleLinkedList.RemoveAt(1);
+                circularSingleLinkedList.Print();
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove First(10)");
+                circularSingleLinkedList.RemoveFirst();
+                circularSingleLinkedList.Print();
+                circularSingleLinkedList.AddFirst(10);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove Last(50)");
+                circularSingleLinkedList.RemoveLast();
+                circularSingleLinkedList.Print();
+                circularSingleLinkedList.AddLast(50);
             }
             catch (Exception ex)
             {
