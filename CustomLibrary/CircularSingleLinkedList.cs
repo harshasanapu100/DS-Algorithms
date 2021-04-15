@@ -63,6 +63,7 @@ namespace CustomLibrary
             if (IsEmpty())
             {
                 head = tail = node;
+                tail.next = head;
             }
             else
             {
