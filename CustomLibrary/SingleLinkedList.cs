@@ -107,6 +107,11 @@ namespace CustomLibrary
                         node.next = current.next;
                         current.next = node;
 
+                        if (tail == current)
+                        {
+                            tail = node;
+                        }
+
                         length++;
                     }
                     else
@@ -194,6 +199,11 @@ namespace CustomLibrary
                 {
                     var nodeToDelete = current.next;
                     current.next = current.next.next;
+
+                    if(nodeToDelete == tail)
+                    {
+                        tail = current;
+                    }
                     nodeToDelete = null;
                     length--;
                 }

@@ -114,7 +114,14 @@ namespace CustomLibrary
                         {
                             current.next.prev = node;
                         }
+                        
                         current.next = node;
+
+                        if(node.next == null)
+                        {
+                            tail = current.next;
+                        }
+
 
                         length++;
                     }
@@ -208,6 +215,10 @@ namespace CustomLibrary
                     if (current.next != null)
                     {
                         current.next.prev = current;
+                    }
+                    else
+                    {
+                        tail = current;
                     }
                     nodeToDelete = null;
                 }
