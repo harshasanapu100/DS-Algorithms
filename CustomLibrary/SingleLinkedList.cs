@@ -256,7 +256,9 @@ namespace CustomLibrary
                     oddNode = oddNode.next;
 
                     if (oddNode != null)
+                    {
                         evenNode = oddNode.next;
+                    }
 
                     length--;
                 }

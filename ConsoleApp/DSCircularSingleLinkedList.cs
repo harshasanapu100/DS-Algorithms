@@ -30,7 +30,7 @@ namespace ConsoleApp
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Remove At Position(3) value(25)");
-                circularSingleLinkedList.RemoveAt(1);
+                circularSingleLinkedList.RemoveAt(3);
                 circularSingleLinkedList.Print();
 
                 Console.WriteLine();
@@ -44,6 +44,24 @@ namespace ConsoleApp
                 circularSingleLinkedList.RemoveLast();
                 circularSingleLinkedList.Print();
                 circularSingleLinkedList.AddLast(50);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove Even Nodes");
+                circularSingleLinkedList.AddLast(60);
+                circularSingleLinkedList.RemoveEvenNodes();
+                circularSingleLinkedList.Print();
+                circularSingleLinkedList.AddAt(20, 2);
+                circularSingleLinkedList.AddAt(40, 4);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove Odd Nodes");
+                circularSingleLinkedList.RemoveOddNodes();
+                circularSingleLinkedList.Print();
+                circularSingleLinkedList.AddAt(10, 1);
+                circularSingleLinkedList.AddAt(30, 3);
+                circularSingleLinkedList.AddAt(50, 5);
+
+
             }
             catch (Exception ex)
             {

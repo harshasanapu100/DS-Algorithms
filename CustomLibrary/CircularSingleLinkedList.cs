@@ -131,6 +131,7 @@ namespace CustomLibrary
             if (head == tail)
             {
                 head = tail = null;
+                length--;
             }
             else
             {
@@ -139,6 +140,7 @@ namespace CustomLibrary
                 head = second;
                 tail.next = head;
 
+                length--;
             }
         }
 
@@ -152,12 +154,15 @@ namespace CustomLibrary
             if (head == tail)
             {
                 head = tail = null;
+                length--;
             }
             else
             {
                 var previous = GetPrevious(tail);
                 tail = previous;
                 tail.next = head;
+
+                length--;
             }
         }
 
@@ -165,7 +170,7 @@ namespace CustomLibrary
         {
             if (IsEmpty())
             {
-                head = tail = null;
+                throw new ArgumentException("List is empty");
             }
             else
             {
@@ -173,18 +178,20 @@ namespace CustomLibrary
                 {
                     throw new ArgumentException("Invalid position to delete the node.");
                 }
-                else if(position ==1)
+                else if (position == 1)
                 {
                     var nodeToDelete = head;
                     head = head.next;
                     tail.next = head;
                     nodeToDelete = null;
+
+                    length--;
                 }
                 else
                 {
                     var current = head;
 
-                    for(int i=1; i < position - 1; i++)
+                    for (int i = 1; i < position - 1; i++)
                     {
                         current = current.next;
                     }
@@ -193,11 +200,99 @@ namespace CustomLibrary
                     current.next = current.next.next;
                     nodeToDelete = null;
 
-                    if(position == length)
+                    if (position == length)
                     {
                         tail = current;
                         tail.next = head;
                     }
+
+                    length--;
+                }
+            }
+        }
+
+        public void RemoveEvenNodes()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+            else if (head == tail)
+            {
+                Console.WriteLine("List should contains ateast 2 nodes");
+            }
+            else
+            {
+                var oddNode = head;
+                var evenNode = head.next;
+
+                while (oddNode != null && evenNode != null)
+                {
+                    oddNode.next = evenNode.next;
+                    evenNode = null;
+
+                    if (oddNode != null && oddNode.next != head)
+                    {
+                        oddNode = oddNode.next;
+
+                        if (oddNode.next != head)
+                        {
+                            evenNode = oddNode.next;
+                        }
+                    }
+                    else
+                    {
+                        tail = oddNode;
+                    }
+
+                    length--;
+                }
+            }
+        }
+
+        public void RemoveOddNodes()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+            else if (head == tail)
+            {
+                head = tail = null;
+                length--;
+            }
+            else
+            {
+                var nodeToDelete = head;
+                head = head.next;
+                nodeToDelete = null;
+                tail.next = head;
+                length--;
+
+                var evenNode = head;
+                var oddNode = head.next;
+
+                while (evenNode != null && oddNode != null)
+                {
+                    evenNode.next = oddNode.next;
+                    oddNode = null;
+
+                    if (evenNode != null && evenNode.next != head)
+                    {
+                        evenNode = evenNode.next;
+
+                        if (evenNode.next != head)
+                        {
+                            oddNode = evenNode.next;
+                        }
+                    }
+                    else
+                    {
+                        tail = evenNode;
+                       
+                    }
+
+                    length--;
                 }
             }
         }
