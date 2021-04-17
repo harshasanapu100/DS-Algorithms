@@ -26,6 +26,11 @@ namespace CustomLibrary
         #region public methods
         public void Print()
         {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
             var current = head;
 
             while (current != null)
@@ -42,6 +47,8 @@ namespace CustomLibrary
             if (IsEmpty())
             {
                 head = tail = node;
+                head.next = tail;
+                tail.prev = head;
             }
             else
             {
@@ -60,6 +67,8 @@ namespace CustomLibrary
             if (IsEmpty())
             {
                 head = tail = node;
+                head.next = tail;
+                tail.prev = head;
             }
             else
             {
@@ -78,6 +87,8 @@ namespace CustomLibrary
             if (IsEmpty())
             {
                 head = tail = node;
+                head.next = tail;
+                tail.prev = head;
             }
             else
             {
