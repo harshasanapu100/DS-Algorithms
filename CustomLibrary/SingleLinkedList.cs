@@ -348,6 +348,7 @@ namespace CustomLibrary
                     var nodetodelete = head;
                     head = head.next;
                     nodetodelete = null;
+                    length--;
                 }
                 else
                 {
@@ -577,6 +578,7 @@ namespace CustomLibrary
                 if (second == tail)
                 {
                     previous.next = first.next;
+                    length--;
                 }
                 else
                 {
@@ -588,6 +590,8 @@ namespace CustomLibrary
                     {
                         previous.next = second;
                     }
+
+                    length = length - 2;
                 }
             }
         }
