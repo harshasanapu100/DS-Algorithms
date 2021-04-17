@@ -5,7 +5,7 @@ namespace ConsoleApp
 {
     class DSCircularSingleLinkedList
     {
-        static void Main(string[] args)
+        static void DSCircularSingleLinkedListMain(string[] args)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace ConsoleApp
                 circularSingleLinkedList.RemoveLast();
 
                 Console.WriteLine();
-                Console.WriteLine("Effect Find Node Index of value(50)");
+                Console.WriteLine("Effect of Find Node Index of value(50)");
                 int index = circularSingleLinkedList.FindNodeIndex(50);
                 Console.WriteLine("Node 50 foun at index: {0}", index);
 
