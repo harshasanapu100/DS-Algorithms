@@ -139,7 +139,7 @@ namespace CustomLibrary
                     current.next = node;
                     node.prev = current;
 
-                    if(position == length + 1)
+                    if (position == length + 1)
                     {
                         tail = node;
                         tail.next = head;
@@ -150,6 +150,100 @@ namespace CustomLibrary
                 }
             }
         }
+
+        public void RemoveFirst()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head == tail)
+            {
+                head = tail = null;
+                length--;
+            }
+            else
+            {
+                var second = head.next;
+                head.next = null;
+                head = second;
+                tail.next = head;
+                head.prev = tail;
+
+                length--;
+            }
+        }
+
+        public void RemoveLast()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head == tail)
+            {
+                head = tail = null;
+                length--;
+            }
+            else
+            {
+                var previous = tail.prev;
+                previous.next = null;
+                tail = previous;
+                tail.next = head;
+                head.prev = tail;
+                length--;
+            }
+        }
+
+        public void RemoveAt(int position)
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (position < 1 || position > length)
+            {
+                throw new ArgumentException("Invalid position to remove the node.");
+            }
+            else if (position == 1)
+            {
+                var second = head.next;
+                head.next = null;
+                head = second;
+                tail.next = head;
+                head.prev = tail;
+
+                length--;
+            }
+            else
+            {
+                var current = head;
+
+                for (int i = 1; i < position - 1; i++)
+                {
+                    current = current.next;
+                }
+
+                var nodeToDelete = current.next;
+                current.next = current.next.next;
+                nodeToDelete = null;
+                current.next.prev = current;
+
+                if(position == length)
+                {
+                    tail = current;
+                    tail.next = head;
+                    head.prev = tail;
+                }
+
+                length--;
+            }
+        }
+
         #endregion
 
         #region private methods

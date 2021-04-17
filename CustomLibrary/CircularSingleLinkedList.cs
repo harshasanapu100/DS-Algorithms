@@ -177,42 +177,40 @@ namespace CustomLibrary
             {
                 throw new ArgumentException("List is empty");
             }
+
+            if (position < 1 || position > length)
+            {
+                throw new ArgumentException("Invalid position to remove the node.");
+            }
+            else if (position == 1)
+            {
+                var nodeToDelete = head;
+                head = head.next;
+                tail.next = head;
+                nodeToDelete = null;
+
+                length--;
+            }
             else
             {
-                if (position < 1 || position > length)
+                var current = head;
+
+                for (int i = 1; i < position - 1; i++)
                 {
-                    throw new ArgumentException("Invalid position to delete the node.");
+                    current = current.next;
                 }
-                else if (position == 1)
+
+                var nodeToDelete = current.next;
+                current.next = current.next.next;
+                nodeToDelete = null;
+
+                if (position == length)
                 {
-                    var nodeToDelete = head;
-                    head = head.next;
+                    tail = current;
                     tail.next = head;
-                    nodeToDelete = null;
-
-                    length--;
                 }
-                else
-                {
-                    var current = head;
 
-                    for (int i = 1; i < position - 1; i++)
-                    {
-                        current = current.next;
-                    }
-
-                    var nodeToDelete = current.next;
-                    current.next = current.next.next;
-                    nodeToDelete = null;
-
-                    if (position == length)
-                    {
-                        tail = current;
-                        tail.next = head;
-                    }
-
-                    length--;
-                }
+                length--;
             }
         }
 
@@ -583,7 +581,7 @@ namespace CustomLibrary
             var first = head;
             var second = head;
 
-            while(second != tail && second.next != tail)
+            while (second != tail && second.next != tail)
             {
                 first = first.next;
                 second = second.next.next;
@@ -610,21 +608,21 @@ namespace CustomLibrary
             var second = head;
             Node previous = null;
 
-            while (second != tail &&  second.next != tail)
+            while (second != tail && second.next != tail)
             {
                 previous = first;
                 first = first.next;
                 second = second.next.next;
             }
 
-            if(second == tail)
+            if (second == tail)
             {
                 previous.next = first.next;
                 length--;
             }
             else
             {
-                if(previous == null)
+                if (previous == null)
                 {
                     head = tail = null;
                 }

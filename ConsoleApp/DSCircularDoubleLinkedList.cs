@@ -25,9 +25,25 @@ namespace ConsoleApp
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Add At position(3) value(25)");
-                circularDoubleLinkedList.AddAt(25,6);
+                circularDoubleLinkedList.AddAt(25, 3);
                 circularDoubleLinkedList.Print();
 
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove At Position(3) value(25)");
+                circularDoubleLinkedList.RemoveAt(3);
+                circularDoubleLinkedList.Print();
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove First(10)");
+                circularDoubleLinkedList.RemoveFirst();
+                circularDoubleLinkedList.Print();
+                circularDoubleLinkedList.AddFirst(10);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove Last(50)");
+                circularDoubleLinkedList.RemoveLast();
+                circularDoubleLinkedList.Print();
+                circularDoubleLinkedList.AddLast(50);
 
                 Console.ReadKey();
             }
