@@ -509,8 +509,10 @@ namespace CustomLibrary
             {
                 second = second.next;
 
-                if (second == null)
+                if (second == head)
+                {
                     throw new ArgumentException("Node not exists at given position");
+                }
             }
 
             while (second != tail)

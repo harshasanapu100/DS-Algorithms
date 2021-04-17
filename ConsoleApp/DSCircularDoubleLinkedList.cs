@@ -34,6 +34,22 @@ namespace ConsoleApp
                 circularDoubleLinkedList.Print();
 
                 Console.WriteLine();
+                Console.WriteLine("Effect of Get Kth Node From End( get 3rd node)");
+                int result = circularDoubleLinkedList.GetKthNodeFromEnd(5);
+                Console.WriteLine("3rd node from end is: {0}", result);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Print Middle Node (when size is odd)");
+                circularDoubleLinkedList.PrintMiddleNode();
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Print Middle Node (when size is even)");
+                Console.WriteLine("Adding 1 more node 60 at the end");
+                circularDoubleLinkedList.AddLast(60);
+                circularDoubleLinkedList.PrintMiddleNode();
+                circularDoubleLinkedList.RemoveLast();
+
+                Console.WriteLine();
                 Console.WriteLine("Effect of Remove First(10)");
                 circularDoubleLinkedList.RemoveFirst();
                 circularDoubleLinkedList.Print();
@@ -49,7 +65,6 @@ namespace ConsoleApp
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
 
