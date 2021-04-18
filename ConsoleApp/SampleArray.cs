@@ -4,7 +4,7 @@ namespace ConsoleApp
 {
     class SampleArray
     {
-        static void Main(string[] args)
+        static void SampleArrayMain(string[] args)
         {
             #region  Single dimensional array
             // First way 
