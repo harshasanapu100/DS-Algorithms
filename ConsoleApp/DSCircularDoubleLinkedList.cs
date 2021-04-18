@@ -50,6 +50,22 @@ namespace ConsoleApp
                 circularDoubleLinkedList.RemoveLast();
 
                 Console.WriteLine();
+                Console.WriteLine("Effect of Delete Middle Node (when size is odd)");
+                circularDoubleLinkedList.RemoveMiddleNode();
+                circularDoubleLinkedList.Print();
+                circularDoubleLinkedList.AddAt(30, 3);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Delete Middle Node (when size is even)");
+                Console.WriteLine("Adding 1 more node 60 at the end");
+                circularDoubleLinkedList.AddLast(60);
+                circularDoubleLinkedList.RemoveMiddleNode();
+                circularDoubleLinkedList.Print();
+                circularDoubleLinkedList.AddAt(30, 3);
+                circularDoubleLinkedList.AddAt(40, 4);
+                circularDoubleLinkedList.RemoveLast();
+
+                Console.WriteLine();
                 Console.WriteLine("Effect of Remove First(10)");
                 circularDoubleLinkedList.RemoveFirst();
                 circularDoubleLinkedList.Print();
@@ -98,10 +114,16 @@ namespace ConsoleApp
                 circularDoubleLinkedList.RemoveAllNodesByValue(30);
                 Console.WriteLine("After Remove");
                 circularDoubleLinkedList.Print();
+                circularDoubleLinkedList.AddAt(30, 3);
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Reverse Linked List");
                 circularDoubleLinkedList.Reverse();
+                circularDoubleLinkedList.Print();
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove All");
+                circularDoubleLinkedList.RemoveAll();
                 circularDoubleLinkedList.Print();
 
                 Console.ReadKey();

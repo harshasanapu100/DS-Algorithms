@@ -601,6 +601,63 @@ namespace CustomLibrary
             }
         }
 
+        public void RemoveAll()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            var temp = head;
+            Node nodeToDelete = null;
+
+            while (head.next != temp)
+            {
+                nodeToDelete = head;
+                head = head.next;
+                nodeToDelete = null;
+            }
+
+            head.next = null;
+            tail.prev = null;
+            head = tail = null;
+            length = 0;
+
+            Console.WriteLine("All nodes are deleted successfully.");
+        }
+
+        public void RemoveMiddleNode()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            var first = head;
+            var second = head;
+            Node previous = null;
+
+            while (second != tail && second.next !=tail)
+            {
+                previous = first;
+                first = first.next;
+                second = second.next.next;
+            }
+
+            if(second == tail)
+            {
+                previous.next = first.next;
+                previous.next.prev = previous;
+                length--;
+            }
+            else
+            {
+                previous.next = second;
+                previous.next.prev = previous;
+                length = length - 2;
+            }
+        }
+
         #endregion
 
         #region private methods
