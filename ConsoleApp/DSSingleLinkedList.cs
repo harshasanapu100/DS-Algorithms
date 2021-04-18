@@ -96,7 +96,7 @@ namespace ConsoleApp
                 Console.WriteLine("Effect of Remove First Node By Value(30)");
                 singleLinkedList.RemoveFirstNodeByValue(30);
                 singleLinkedList.Print();
-                singleLinkedList.AddAt(30,3);
+                singleLinkedList.AddAt(30, 3);
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Remove Last Node By Value(30)");
@@ -125,11 +125,16 @@ namespace ConsoleApp
                 singleLinkedList.RemoveAll();
                 singleLinkedList.Print();
 
+                Console.WriteLine();
+                Console.WriteLine("Check the given List has loop or not");
+                SingleLinkedList list = SingleLinkedList.CreateWithLoop();
+                Console.WriteLine("Is List is haivng loop: {0}", list.HasLoop());
+
                 Console.ReadKey();
 
                 Console.ReadKey();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }

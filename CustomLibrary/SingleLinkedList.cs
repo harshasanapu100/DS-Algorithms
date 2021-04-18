@@ -613,6 +613,42 @@ namespace CustomLibrary
             }
         }
 
+        public bool HasLoop()
+        {
+            var first = head;
+            var second = head;
+
+            while (second != null && second.next != null)
+            {
+                first = first.next;
+                second = second.next.next;
+
+                if (first == second)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public static SingleLinkedList CreateWithLoop()
+        {
+            SingleLinkedList list = new SingleLinkedList();
+
+            list.AddLast(10);
+            list.AddLast(20);
+
+            var node = list.tail;
+
+            list.AddLast(30);
+            list.AddLast(40);
+            list.AddLast(50);
+            list.AddLast(60);
+            list.AddLast(70);
+
+            list.tail.next = node;
+
+            return list;
+        }
         #endregion
 
         #region private methods
