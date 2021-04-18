@@ -220,7 +220,8 @@ namespace CustomLibrary
             {
                 throw new ArgumentException("List is empty");
             }
-            else if (head == tail)
+
+            if (head == tail)
             {
                 Console.WriteLine("List should contains ateast 2 nodes");
             }
@@ -234,7 +235,7 @@ namespace CustomLibrary
                     oddNode.next = evenNode.next;
                     evenNode = null;
 
-                    if (oddNode != null && oddNode.next != head)
+                    if (oddNode.next != head)
                     {
                         oddNode = oddNode.next;
 
@@ -246,6 +247,7 @@ namespace CustomLibrary
                     else
                     {
                         tail = oddNode;
+                        tail.next = head;
                     }
 
                     length--;

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CustomLibrary
 {
@@ -332,6 +330,48 @@ namespace CustomLibrary
             }
         }
 
+        public void RemoveEvenNodes()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head == tail)
+            {
+                Console.WriteLine("List should contains ateast 2 nodes");
+            }
+            else
+            {
+                var oddNode = head;
+                var evenNode = head.next;
+
+                while (oddNode != null && evenNode != null)
+                {
+                    oddNode.next = evenNode.next;
+                    evenNode = null;
+
+                    if (oddNode.next != head)
+                    {
+                        oddNode.next.prev = oddNode;
+                        oddNode = oddNode.next;
+
+                        if (oddNode.next != head)
+                        {
+                            evenNode = oddNode.next;
+                        }
+                    }
+                    else
+                    {
+                        tail = oddNode;
+                        tail.next = head;
+                        head.prev = tail;
+                    }
+
+                    length--;
+                }
+            }
+        }
         #endregion
 
         #region private methods

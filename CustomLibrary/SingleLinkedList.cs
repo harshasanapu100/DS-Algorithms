@@ -253,11 +253,18 @@ namespace CustomLibrary
                     oddNode.next = evenNode.next;
                     evenNode = null;
 
-                    oddNode = oddNode.next;
-
-                    if (oddNode != null)
+                    if(oddNode.next != null)
                     {
-                        evenNode = oddNode.next;
+                        oddNode = oddNode.next;
+
+                        if(oddNode!= null)
+                        {
+                            evenNode = oddNode.next;
+                        }
+                    }
+                    else
+                    {
+                        tail = oddNode;
                     }
 
                     length--;

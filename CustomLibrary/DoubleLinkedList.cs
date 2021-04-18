@@ -121,10 +121,10 @@ namespace CustomLibrary
                         {
                             current.next.prev = node;
                         }
-                        
+
                         current.next = node;
 
-                        if(node.next == null)
+                        if (node.next == null)
                         {
                             tail = current.next;
                         }
@@ -308,13 +308,16 @@ namespace CustomLibrary
                     if (oddNode.next != null)
                     {
                         oddNode.next.prev = oddNode;
+                        oddNode = oddNode.next;
+
+                        if (oddNode != null)
+                        {
+                            evenNode = oddNode.next;
+                        }
                     }
-
-                    oddNode = oddNode.next;
-
-                    if (oddNode != null)
+                    else
                     {
-                        evenNode = oddNode.next;
+                        tail = oddNode;
                     }
 
                     length--;
@@ -588,7 +591,7 @@ namespace CustomLibrary
                 throw new ArgumentException("List is empty");
             }
 
-            if (head == tail || (head.next == tail && tail.prev== head))
+            if (head == tail || (head.next == tail && tail.prev == head))
             {
                 head = tail = null;
             }
@@ -609,11 +612,13 @@ namespace CustomLibrary
                 {
                     previous.next = first.next;
                     previous.next.prev = first.prev;
+                    length--;
                 }
                 else
                 {
                     previous.next = second;
                     previous.next.prev = first.prev;
+                    length = length - 2;
                 }
             }
         }
