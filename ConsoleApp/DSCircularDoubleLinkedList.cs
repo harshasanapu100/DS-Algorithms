@@ -69,6 +69,13 @@ namespace ConsoleApp
                 circularDoubleLinkedList.AddAt(40, 4);
 
                 Console.WriteLine();
+                Console.WriteLine("Effect of Remove Odd Nodes");
+                circularDoubleLinkedList.Print();
+                circularDoubleLinkedList.AddAt(10, 1);
+                circularDoubleLinkedList.AddAt(30, 3);
+                circularDoubleLinkedList.AddAt(50, 5);
+
+                Console.WriteLine();
                 Console.WriteLine("Effect of Reverse Linked List");
                 circularDoubleLinkedList.Reverse();
                 circularDoubleLinkedList.Print();

@@ -372,6 +372,56 @@ namespace CustomLibrary
                 }
             }
         }
+
+        public void RemoveOddNodes()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if(head == tail)
+            {
+                head = tail = null;
+            }
+            else
+            {
+                var nodeToDelte = head;
+                head = head.next;
+                nodeToDelte = null;
+                tail.next = head;
+                head.prev = tail;
+                length--;
+
+                var evenNode = head;
+                var oddNode = head.next;
+
+                while (evenNode != null && oddNode != null)
+                {
+                    evenNode.next = oddNode.next;
+                    oddNode = null;
+
+                    if (evenNode.next != head)
+                    {
+                        evenNode.next.prev = evenNode;
+                        evenNode = evenNode.next;
+
+                        if (evenNode.next != head)
+                        {
+                            oddNode = evenNode.next;
+                        }
+                    }
+                    else
+                    {
+                        tail = evenNode;
+                        tail.next = head;
+                        head.prev = tail;
+                    }
+
+                    length--;
+                }
+            }
+        }
         #endregion
 
         #region private methods

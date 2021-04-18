@@ -343,6 +343,7 @@ namespace CustomLibrary
                 head = head.next;
                 head.prev = null;
                 temp = null;
+                length--;
 
                 var evenNode = head;
                 var oddNode = head.next;
@@ -355,13 +356,16 @@ namespace CustomLibrary
                     if (evenNode.next != null)
                     {
                         evenNode.next.prev = evenNode;
+                        evenNode = evenNode.next;
+
+                        if (evenNode != null)
+                        {
+                            oddNode = evenNode.next;
+                        }
                     }
-
-                    evenNode = evenNode.next;
-
-                    if (evenNode != null)
+                    else
                     {
-                        oddNode = evenNode.next;
+                        tail = evenNode;
                     }
 
                     length--;

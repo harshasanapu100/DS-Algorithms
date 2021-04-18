@@ -200,7 +200,7 @@ namespace CustomLibrary
                     var nodeToDelete = current.next;
                     current.next = current.next.next;
 
-                    if(nodeToDelete == tail)
+                    if (nodeToDelete == tail)
                     {
                         tail = current;
                     }
@@ -253,11 +253,11 @@ namespace CustomLibrary
                     oddNode.next = evenNode.next;
                     evenNode = null;
 
-                    if(oddNode.next != null)
+                    if (oddNode.next != null)
                     {
                         oddNode = oddNode.next;
 
-                        if(oddNode!= null)
+                        if (oddNode != null)
                         {
                             evenNode = oddNode.next;
                         }
@@ -299,10 +299,20 @@ namespace CustomLibrary
                     evenNode.next = oddNode.next;
                     oddNode = null;
 
-                    evenNode = evenNode.next;
+                    if (evenNode.next != null)
+                    {
+                        evenNode = evenNode.next;
 
-                    if (evenNode != null)
-                        oddNode = evenNode.next;
+                        if (evenNode != null)
+                        {
+                            oddNode = evenNode.next;
+                        }
+
+                    }
+                    else
+                    {
+                        tail = evenNode;
+                    }
 
                     length--;
                 }

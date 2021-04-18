@@ -282,7 +282,7 @@ namespace CustomLibrary
                     evenNode.next = oddNode.next;
                     oddNode = null;
 
-                    if (evenNode != null && evenNode.next != head)
+                    if (evenNode.next != head)
                     {
                         evenNode = evenNode.next;
 
@@ -294,6 +294,7 @@ namespace CustomLibrary
                     else
                     {
                         tail = evenNode;
+                        tail.next = head;
                     }
 
                     length--;
