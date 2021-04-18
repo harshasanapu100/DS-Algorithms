@@ -96,11 +96,13 @@ namespace ConsoleApp
                 Console.WriteLine("Effect of Remove First Node By Value(30)");
                 singleLinkedList.RemoveFirstNodeByValue(30);
                 singleLinkedList.Print();
+                singleLinkedList.AddAt(30,3);
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Remove Last Node By Value(30)");
                 singleLinkedList.RemoveLastNodeByValue(30);
                 singleLinkedList.Print();
+                singleLinkedList.AddAt(30, 3);
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Remove All Nodes By Value(30)");

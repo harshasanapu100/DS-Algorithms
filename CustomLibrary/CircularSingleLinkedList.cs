@@ -372,6 +372,7 @@ namespace CustomLibrary
                             if (current.next == head)
                             {
                                 tail = current;
+                                tail.next = head;
                             }
                             break;
                         }
@@ -435,6 +436,7 @@ namespace CustomLibrary
                         if (previousToLast.next == head)
                         {
                             tail = previousToLast;
+                            tail.next = head;
                         }
                     }
                 }
@@ -465,6 +467,7 @@ namespace CustomLibrary
                     if (head.next == head)
                     {
                         head = null;
+                        length--;
                     }
                     else
                     {
@@ -490,6 +493,7 @@ namespace CustomLibrary
                         if (current.next == head)
                         {
                             tail = current;
+                            tail.next = head;
                         }
                     }
 

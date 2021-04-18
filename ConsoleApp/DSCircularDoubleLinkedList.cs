@@ -70,10 +70,34 @@ namespace ConsoleApp
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Remove Odd Nodes");
+                circularDoubleLinkedList.RemoveOddNodes();
                 circularDoubleLinkedList.Print();
                 circularDoubleLinkedList.AddAt(10, 1);
                 circularDoubleLinkedList.AddAt(30, 3);
                 circularDoubleLinkedList.AddAt(50, 5);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove First Node By Value(30)");
+                circularDoubleLinkedList.RemoveFirstNodeByValue(30);
+                circularDoubleLinkedList.Print();
+                circularDoubleLinkedList.AddAt(30, 3);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove Last Node By Value(30)");
+                circularDoubleLinkedList.RemoveLastNodeByValue(30);
+                circularDoubleLinkedList.Print();
+                circularDoubleLinkedList.AddAt(30, 3);
+
+                Console.WriteLine();
+                Console.WriteLine("Effect of Remove All Nodes By Value(30)");
+                Console.WriteLine("Adding 3 more 30's in different places");
+                circularDoubleLinkedList.AddAt(30, 5);
+                circularDoubleLinkedList.AddAt(30, 2);
+                circularDoubleLinkedList.AddAt(30, 1);
+                circularDoubleLinkedList.Print();
+                circularDoubleLinkedList.RemoveAllNodesByValue(30);
+                Console.WriteLine("After Remove");
+                circularDoubleLinkedList.Print();
 
                 Console.WriteLine();
                 Console.WriteLine("Effect of Reverse Linked List");
