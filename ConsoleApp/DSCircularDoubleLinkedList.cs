@@ -5,7 +5,7 @@ namespace ConsoleApp
 {
     class DSCircularDoubleLinkedList
     {
-        static void Main(string[] args)
+        static void DSCircularDoubleLinkedListMain(string[] args)
         {
             try
             {
