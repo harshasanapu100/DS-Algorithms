@@ -61,6 +61,11 @@ namespace ConsoleApp
                 circularDoubleLinkedList.Print();
                 circularDoubleLinkedList.AddLast(50);
 
+                Console.WriteLine();
+                Console.WriteLine("Effect of Reverse Linked List");
+                circularDoubleLinkedList.Reverse();
+                circularDoubleLinkedList.Print();
+
                 Console.ReadKey();
             }
             catch (Exception ex)

@@ -47,8 +47,6 @@ namespace CustomLibrary
             if (IsEmpty())
             {
                 head = tail = node;
-                head.next = tail;
-                tail.prev = head;
             }
             else
             {
@@ -67,8 +65,6 @@ namespace CustomLibrary
             if (IsEmpty())
             {
                 head = tail = node;
-                head.next = tail;
-                tail.prev = head;
             }
             else
             {
@@ -264,6 +260,7 @@ namespace CustomLibrary
 
                 if (temp != null)
                 {
+                    tail = head;
                     head = temp.prev;
                 }
             }

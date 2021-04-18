@@ -258,13 +258,13 @@ namespace CustomLibrary
             {
                 second = second.next;
 
-                if(second== head)
+                if (second == head)
                 {
                     throw new ArgumentException("Node not exists at given position");
                 }
             }
 
-           while(second != tail)
+            while (second != tail)
             {
                 first = first.next;
                 second = second.next;
@@ -283,7 +283,7 @@ namespace CustomLibrary
             var first = head;
             var second = head;
 
-            while(second !=tail && second.next != tail)
+            while (second != tail && second.next != tail)
             {
                 first = first.next;
                 second = second.next.next;
@@ -296,6 +296,39 @@ namespace CustomLibrary
             else
             {
                 Console.WriteLine(first.value + " " + first.next.value);
+            }
+        }
+
+        public void Reverse()
+        {
+            if (IsEmpty())
+            {
+                throw new ArgumentException("List is empty");
+            }
+
+            if (head != tail)
+            {
+                Node temp = null;
+                var current = head;
+
+                while (true)
+                {
+                    temp = current.prev;
+                    current.prev = current.next;
+                    current.next = temp;
+                    current = current.prev;
+
+                    if (current == head)
+                    {
+                        break;
+                    }
+                }
+
+                if (temp != null)
+                {
+                    tail = head;
+                    head = tail.next;
+                }
             }
         }
 
