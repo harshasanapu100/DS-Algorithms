@@ -13,7 +13,7 @@ namespace ConsoleApp
             {
                 DynamicArray dynamicArray = new DynamicArray(5);
 
-                Console.WriteLine("Array created with 5 elements");
+                Console.WriteLine("Creating array with 5 elements");
                 Console.WriteLine("Adding below 5 elements to the array");
                 Console.WriteLine("10, 20, 30, 40, 50");
                 dynamicArray.Insert(10);
