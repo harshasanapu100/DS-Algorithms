@@ -7,7 +7,7 @@ namespace ConsoleApp
 {
     class DSDynamicArray
     {
-        static void Main(string[] args)
+        static void DSDynamicArrayMain(string[] args)
         {
             try
             {
