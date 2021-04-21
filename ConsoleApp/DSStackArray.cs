@@ -3,14 +3,14 @@ using CustomLibrary;
 
 namespace ConsoleApp
 {
-    class DSStack
+    class DSStackArray
     {
         static void Main(string[] args)
         {
 
             try
             {
-                CustomStack customStack = new CustomStack(5);
+                CustomStackArray customStack = new CustomStackArray(5);
                 Console.WriteLine("Custom stack can store only 5 elements");
 
                 Console.WriteLine();
@@ -43,10 +43,6 @@ namespace ConsoleApp
                 Console.WriteLine("Peeking item from stack");
                 int item = customStack.Peek();
                 Console.WriteLine("Peek item is: {0}", item);
-
-                Console.WriteLine();
-                Console.WriteLine("Pushing new item as 6th item to stack");
-                customStack.Push(60);
 
                 Console.ReadKey();
             }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CustomLibrary
 {
-    public class CustomStack
+    public class CustomStackArray
     {
         #region private fields
         private int[] items;
@@ -12,7 +12,7 @@ namespace CustomLibrary
         #endregion
 
         #region constructor
-        public CustomStack(int length)
+        public CustomStackArray(int length)
         {
             items = new int[length];
         }
