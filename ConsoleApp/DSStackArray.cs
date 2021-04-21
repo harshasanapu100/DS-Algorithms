@@ -11,7 +11,7 @@ namespace ConsoleApp
             try
             {
                 CustomStackArray customStack = new CustomStackArray(5);
-                Console.WriteLine("Custom stack can store only 5 elements");
+                Console.WriteLine("Custom stack can store only 5 elements as we given size");
 
                 Console.WriteLine();
                 Console.WriteLine("Creating stack with 5 elements");
@@ -44,6 +44,13 @@ namespace ConsoleApp
                 int item = customStack.Peek();
                 Console.WriteLine("Peek item is: {0}", item);
 
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Reversing a string using Stack");
+                Console.WriteLine("Input is abcd and output should be dcba");
+                Console.ForegroundColor = ConsoleColor.White;
+                string reverse = customStack.Reverse("abcd");
+                Console.WriteLine("Reversed string is: {0}", reverse);
                 Console.ReadKey();
             }
             catch (Exception ex)

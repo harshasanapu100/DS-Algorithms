@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 
 namespace CustomLibrary
@@ -67,6 +67,25 @@ namespace CustomLibrary
         public bool IsEmpty()
         {
             return count == 0;
+        }
+
+        public string Reverse(string input)
+        {
+            StringBuilder builder = new StringBuilder();
+
+            Stack<char> stack = new Stack<char>();
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                stack.Push(input[i]);
+            }
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                builder.Append(stack.Pop());
+            }
+
+            return builder.ToString();
         }
         #endregion
     }
