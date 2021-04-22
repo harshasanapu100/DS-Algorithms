@@ -1,58 +1,52 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using CustomLibrary;
 
 namespace ConsoleApp
 {
-    class DSStackArray
+     class DSStackLinkedList
     {
-        static void DSStackArraMain(string[] args)
+        static void Main(string[] args)
         {
-
             try
             {
-                CustomStackArray customStack = new CustomStackArray(5);
+                CustomStackLinkedList<int> customStackLinkedList = new CustomStackLinkedList<int>(5);
                 Console.WriteLine("Custom stack can store only 5 elements as we given size");
 
                 Console.WriteLine();
                 Console.WriteLine("Creating stack with 5 elements");
                 Console.WriteLine("Pushing below 5 elements to the stack");
                 Console.WriteLine("10, 20, 30, 40, 50");
-                customStack.Push(10);
-                customStack.Push(20);
-                customStack.Push(30);
-                customStack.Push(40);
-                customStack.Push(50);
+                customStackLinkedList.Push(10);
+                customStackLinkedList.Push(20);
+                customStackLinkedList.Push(30);
+                customStackLinkedList.Push(40);
+                customStackLinkedList.Push(50);
 
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Printing the elements");
                 Console.ForegroundColor = ConsoleColor.White;
-                customStack.Print();
+                customStackLinkedList.Print();
 
                 Console.WriteLine();
                 Console.WriteLine("Poping item from stack");
-                int result = customStack.Pop();
+                int result = customStackLinkedList.Pop();
                 Console.WriteLine("Poped value: {0}", result);
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Printing the elements");
                 Console.ForegroundColor = ConsoleColor.White;
-                customStack.Print();
-                customStack.Push(50);
+                customStackLinkedList.Print();
+                customStackLinkedList.Push(50);
 
                 Console.WriteLine();
                 Console.WriteLine("Peeking item from stack");
-                int item = customStack.Peek();
+                int item = customStackLinkedList.Peek();
                 Console.WriteLine("Peek item is: {0}", item);
 
-                Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("Reversing a string using Stack");
-                Console.WriteLine("Input is abcd and output should be dcba");
-                Console.ForegroundColor = ConsoleColor.White;
-                string reverse = customStack.Reverse("abcd");
-                Console.WriteLine("Reversed string is: {0}", reverse);
-                Console.ReadKey();
+                Console.ReadLine();
             }
             catch (Exception ex)
             {
