@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections;
 
 namespace CustomLibrary
 {
-    public class CustomStackArray
+    public class CustomStackArray<T>
     {
         #region private fields
-        private int[] items;
+        private T[] items;
         private int count;
         #endregion
 
         #region constructor
         public CustomStackArray(int length)
         {
-            items = new int[length];
+            items = new T[length];
         }
         #endregion
 
         #region public methods
-        public void Push(int item)
+        public void Push(T item)
         {
             if (count == items.Length)
             {
@@ -30,7 +31,7 @@ namespace CustomLibrary
             count++;
         }
 
-        public int Pop()
+        public T Pop()
         {
             if (count == 0)
             {
@@ -54,7 +55,7 @@ namespace CustomLibrary
             }
         }
 
-        public int Peek()
+        public T Peek()
         {
             if (count == 0)
             {
@@ -86,6 +87,54 @@ namespace CustomLibrary
             }
 
             return builder.ToString();
+        }
+
+        public bool IsExpressionBalanced(string expression)
+        {
+            CustomStackArray<char> customStackLinkedList = new CustomStackArray<char>(expression.Length);
+
+            foreach (char ch in expression)
+            {
+                if (isLeftBracket(ch))
+                {
+                    customStackLinkedList.Push(ch);
+                }
+
+                if (isRightBracket(ch))
+                {
+                    if (customStackLinkedList.IsEmpty())
+                    {
+                        return false;
+                    }
+
+                    var top = customStackLinkedList.Pop();
+
+                    if (!isBracketsMatched(top, ch))
+                        return false;
+                }
+            }
+
+            return customStackLinkedList.IsEmpty();
+        }
+        #endregion
+
+        #region private methods
+        private bool isLeftBracket(char ch)
+        {
+            return ch == '(' || ch == '<' || ch == '[' || ch == '{';
+        }
+
+        private bool isRightBracket(char ch)
+        {
+            return ch == ')' || ch == '>' || ch == ']' || ch == '}';
+        }
+
+        private bool isBracketsMatched(char left, char right)
+        {
+            return (right == ')' && left == '(' ||
+                right == '>' && left == '<' ||
+                right == ']' && left == '[' ||
+                right == '}' && left == '{');
         }
         #endregion
     }

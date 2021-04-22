@@ -5,12 +5,12 @@ namespace ConsoleApp
 {
     class DSStackArray
     {
-        static void DSStackArraMain(string[] args)
+        static void Main(string[] args)
         {
 
             try
             {
-                CustomStackArray customStack = new CustomStackArray(5);
+                CustomStackArray<int> customStack = new CustomStackArray<int>(5);
                 Console.WriteLine("Custom stack can store only 5 elements as we given size");
 
                 Console.WriteLine();
@@ -52,6 +52,15 @@ namespace ConsoleApp
                 Console.ForegroundColor = ConsoleColor.White;
                 string reverse = customStack.Reverse("abcd");
                 Console.WriteLine("Reversed string is: {0}", reverse);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Checking whether the expression is balanced or not");
+                Console.WriteLine("Input is ([{<a>+<b>}])");
+                Console.ForegroundColor = ConsoleColor.White;
+                bool isBalanced = customStack.IsExpressionBalanced("([{<a>+<b>}])");
+                Console.WriteLine("Is expression balanced: {0}", isBalanced);
+
                 Console.ReadKey();
             }
             catch (Exception ex)

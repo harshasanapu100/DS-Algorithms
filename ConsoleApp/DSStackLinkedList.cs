@@ -7,7 +7,7 @@ namespace ConsoleApp
 {
      class DSStackLinkedList
     {
-        static void Main(string[] args)
+        static void DSStackLinkedListMain(string[] args)
         {
             try
             {
