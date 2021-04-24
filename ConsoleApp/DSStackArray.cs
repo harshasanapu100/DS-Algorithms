@@ -61,6 +61,57 @@ namespace ConsoleApp
                 bool isBalanced = customStack.IsExpressionBalanced("([{<a>+<b>}])");
                 Console.WriteLine("Is expression balanced: {0}", isBalanced);
 
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Checking whether the expression is having duplicate parenthesis or not");
+                Console.WriteLine("Input is ((x+y))");
+                Console.ForegroundColor = ConsoleColor.White;
+                bool isDuplicateBraces = customStack.IsExpressionHaveDuplicateBraces("((x+y)+((z)))");
+                Console.WriteLine("Is expression have duplicate braces: {0}", isDuplicateBraces);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Designing a stack that supports push, pop and retrieving the minimum value in constant time.");
+                MinStack minStack = new MinStack();
+                Console.WriteLine("Creating stack with 5 elements");
+                Console.WriteLine("Pushing below 5 elements to the stack");
+                Console.WriteLine("5, 10, 1, 8, 2");
+                Console.ForegroundColor = ConsoleColor.White;
+                minStack.Push(5);
+                minStack.Push(10);
+                minStack.Push(1);
+                minStack.Push(8);
+                minStack.Push(2);
+                Console.WriteLine();
+                Console.WriteLine("Minimum value in stack is: {0}", minStack.Min());
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Implement two stacks in one array.");
+                TwoStacks<int> twoStacks = new TwoStacks<int>(5);
+                Console.WriteLine("Creating stack with 5 elements");
+                Console.WriteLine("Pushing below below first 2 elements at the begining remaing 3 elements at the ending of the stack");
+                Console.WriteLine("10, 20, 30, 40, 50");
+                Console.ForegroundColor = ConsoleColor.White;
+                twoStacks.Push1(10);
+                twoStacks.Push1(20);
+                twoStacks.Push2(30);
+                twoStacks.Push2(40);
+                twoStacks.Push2(50);
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Printing the elements");
+                Console.ForegroundColor = ConsoleColor.White;
+                twoStacks.Print();
+
+                Console.WriteLine();
+                Console.WriteLine("Peek of stack begining: {0}", twoStacks.Peek1());
+                Console.WriteLine("Peek of stack ending: {0}", twoStacks.Peek2());
+                Console.WriteLine("Poping of stack begining: {0}", twoStacks.Pop1());
+                Console.WriteLine("Poping of stack ending: {0}", twoStacks.Pop2());
+                Console.WriteLine();
+                
+
                 Console.ReadKey();
             }
             catch (Exception ex)
