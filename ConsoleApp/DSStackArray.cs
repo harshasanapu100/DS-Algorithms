@@ -110,7 +110,38 @@ namespace ConsoleApp
                 Console.WriteLine("Poping of stack begining: {0}", twoStacks.Pop1());
                 Console.WriteLine("Poping of stack ending: {0}", twoStacks.Pop2());
                 Console.WriteLine();
-                
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Reversing a stack with out using any data structure recursively");
+                StackReverse stackReverse = new StackReverse();
+                Console.WriteLine("Creating stack with 5 elements");
+                Console.WriteLine("Pushing below 5 elements to the stack");
+                Console.WriteLine("10, 20, 30, 40, 50");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                stackReverse.stack.Push(10);
+                stackReverse.stack.Push(20);
+                stackReverse.stack.Push(30);
+                stackReverse.stack.Push(40);
+                stackReverse.stack.Push(50);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Original Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                stackReverse.Print();
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Performing Reverse");
+                Console.ForegroundColor = ConsoleColor.White;
+                stackReverse.Reverse();
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Reversed Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                stackReverse.Print();
 
                 Console.ReadKey();
             }

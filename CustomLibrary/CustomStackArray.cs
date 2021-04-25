@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Collections;
 
 namespace CustomLibrary
 {
@@ -288,7 +287,7 @@ namespace CustomLibrary
 
         public void Print()
         {
-            for (int i = items.Length-1; i > -1; i--)
+            for (int i = items.Length - 1; i > -1; i--)
             {
                 Console.WriteLine(items[i]);
             }
@@ -316,5 +315,44 @@ namespace CustomLibrary
             return top2 == items.Length;
         }
         #endregion
+    }
+
+    public class StackReverse
+    {
+        public Stack<int> stack = new Stack<int>();
+
+        public void Reverse()
+        {
+            if (stack.Count > 0)
+            {
+                int top = stack.Peek();
+                stack.Pop();
+                Reverse();
+                InsetAtBottom(top);
+            }
+        }
+
+        public void InsetAtBottom(int item)
+        {
+            if (stack.Count == 0)
+            {
+                stack.Push(item);
+            }
+            else
+            {
+                int top = stack.Peek();
+                stack.Pop();
+                InsetAtBottom(item);
+                stack.Push(top);
+            }
+        }
+
+        public void Print()
+        {
+            foreach (int item in stack)
+            {
+                Console.WriteLine(item);
+            }
+        }
     }
 }
