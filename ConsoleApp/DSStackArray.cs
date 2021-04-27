@@ -181,6 +181,14 @@ namespace ConsoleApp
                 Console.WriteLine("Popped element from stack 1 is " + kStackArray.Pop(1));
                 Console.WriteLine("Popped element from stack 0 is " + kStackArray.Pop(0));
 
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Letter Combinations of a phone number 234 are");
+                Console.ForegroundColor = ConsoleColor.White;
+                PrintCombinations printCombinations = new PrintCombinations();
+                var combinations = printCombinations.LetterCombinations("234");
+                printCombinations.print(combinations);
+
                 Console.ReadKey();
             }
             catch (Exception ex)

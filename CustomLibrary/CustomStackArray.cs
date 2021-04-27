@@ -447,58 +447,69 @@ namespace CustomLibrary
         #endregion
 
         #region private methods
-        private  bool IsEmpty(int sn)
+        private bool IsEmpty(int sn)
         {
             return (top[sn] == -1);
         }
         #endregion
     }
-    
+
     public class PrintCombinations
     {
-        public static List<string> LetterCombinations(string input)
+        public List<string> LetterCombinations(string input)
         {
-            if (input == null || input.Length == 0)
+            List<string> output = new List<string>();
+
+            if (string.IsNullOrEmpty(input))
             {
-                return null;
+                return output;
             }
 
-            List<string> output = new List<string>();
-            char[] combinations = new char[input.Length];
+            StringBuilder sb = new StringBuilder();
+            int pos = 0;
 
-            Dictionary<char, char[]> keypad = new Dictionary<char, char[]>();
-            keypad.Add('0', new char[] { });
-            keypad.Add('1', new char[] { });
-            keypad.Add('2', new char[] { 'a', 'b', 'c' });
-            keypad.Add('3', new char[] { 'd', 'e', 'f' });
-            keypad.Add('4', new char[] { 'g', 'h', 'i' });
-            keypad.Add('5', new char[] { 'j', 'k', 'l' });
-            keypad.Add('6', new char[] { 'm', 'n', 'o' });
-            keypad.Add('7', new char[] { 'p', 'q', 'r', 's' });
-            keypad.Add('8', new char[] { 't', 'u', 'v' });
-            keypad.Add('9', new char[] { 'w', 'x', 'y', 'z' });
-            
-            GenerateCombinations(input, 0, keypad, output, combinations);
+            Dictionary<char, char[]> lettersMap  = new Dictionary<char, char[]>();
+            lettersMap .Add('0', new char[] { });
+            lettersMap .Add('1', new char[] { });
+            lettersMap .Add('2', new char[] { 'a', 'b', 'c' });
+            lettersMap .Add('3', new char[] { 'd', 'e', 'f' });
+            lettersMap .Add('4', new char[] { 'g', 'h', 'i' });
+            lettersMap .Add('5', new char[] { 'j', 'k', 'l' });
+            lettersMap .Add('6', new char[] { 'm', 'n', 'o' });
+            lettersMap .Add('7', new char[] { 'p', 'q', 'r', 's' });
+            lettersMap .Add('8', new char[] { 't', 'u', 'v' });
+            lettersMap .Add('9', new char[] { 'w', 'x', 'y', 'z' });
+
+            GenerateCombinations(input, sb, lettersMap, output, pos);
 
             return output;
         }
 
-        private static void GenerateCombinations(string input, int index, Dictionary<char, char[]> keypad,
-                        List<string> output, char[] combinations)
+        private static List<string> GenerateCombinations(string input, StringBuilder sb,
+                Dictionary<char, char[]> lettersMap, List<string> output, int pos)
         {
-            if (index == input.Length)
+            if (sb.Length == input.Length)
             {
-                output.Add(new string(combinations));
-                return;
+                output.Add(sb.ToString());
+                return output;
             }
 
-            char[] keypadKeys = keypad[input[index]];
+            lettersMap.TryGetValue(input[pos], out char[] values);
 
-            for (int i = 0; i < keypadKeys.Length; i++)
+            foreach (var v in values)
             {
-                combinations[index] = keypadKeys[i];
-                GenerateCombinations(input, index + 1, keypad, output, combinations);
-                //https://codereview.stackexchange.com/questions/229976/letter-combinations-of-a-phone-number-using-a-dictionary
+                sb.Append(v);
+                GenerateCombinations(input, sb, lettersMap, output, pos + 1);
+                sb.Remove(sb.Length - 1, 1);
+            }
+            return output;
+        }
+
+        public void print(List<string> input)
+        {
+            foreach (var item in input)
+            {
+                Console.WriteLine(item);
             }
         }
     }
