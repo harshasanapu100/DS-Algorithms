@@ -453,4 +453,52 @@ namespace CustomLibrary
         }
         #endregion
     }
+    
+    public class PrintCombinations
+    {
+        public static List<string> LetterCombinations(string input)
+        {
+            if (input == null || input.Length == 0)
+            {
+                return null;
+            }
+
+            List<string> output = new List<string>();
+            char[] combinations = new char[input.Length];
+
+            Dictionary<char, char[]> keypad = new Dictionary<char, char[]>();
+            keypad.Add('0', new char[] { });
+            keypad.Add('1', new char[] { });
+            keypad.Add('2', new char[] { 'a', 'b', 'c' });
+            keypad.Add('3', new char[] { 'd', 'e', 'f' });
+            keypad.Add('4', new char[] { 'g', 'h', 'i' });
+            keypad.Add('5', new char[] { 'j', 'k', 'l' });
+            keypad.Add('6', new char[] { 'm', 'n', 'o' });
+            keypad.Add('7', new char[] { 'p', 'q', 'r', 's' });
+            keypad.Add('8', new char[] { 't', 'u', 'v' });
+            keypad.Add('9', new char[] { 'w', 'x', 'y', 'z' });
+            
+            GenerateCombinations(input, 0, keypad, output, combinations);
+
+            return output;
+        }
+
+        private static void GenerateCombinations(string input, int index, Dictionary<char, char[]> keypad,
+                        List<string> output, char[] combinations)
+        {
+            if (index == input.Length)
+            {
+                output.Add(new string(combinations));
+                return;
+            }
+
+            char[] keypadKeys = keypad[input[index]];
+
+            for (int i = 0; i < keypadKeys.Length; i++)
+            {
+                combinations[index] = keypadKeys[i];
+                GenerateCombinations(input, index + 1, keypad, output, combinations);
+            }
+        }
+    }
 }
