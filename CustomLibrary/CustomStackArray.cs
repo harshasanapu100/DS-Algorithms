@@ -498,6 +498,7 @@ namespace CustomLibrary
             {
                 combinations[index] = keypadKeys[i];
                 GenerateCombinations(input, index + 1, keypad, output, combinations);
+                //https://codereview.stackexchange.com/questions/229976/letter-combinations-of-a-phone-number-using-a-dictionary
             }
         }
     }
