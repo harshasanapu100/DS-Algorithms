@@ -355,4 +355,102 @@ namespace CustomLibrary
             }
         }
     }
+
+    public class KStackArray
+    {
+        #region private fields
+        private int[] arr; // Array of size n to store actual content to be stored in stacks
+        private int[] top; // Array of size k to store indexes of top elements of stacks
+        private int[] next; // Array of size n to store next entry in all stacks and free list 
+        private int n, k;
+        private int free; // To store beginning index of free list
+        #endregion
+
+        #region constructor
+        public KStackArray(int k, int n)
+        {
+            // Initialize n and k, and allocate memory for all arrays 
+            this.k = k;
+            this.n = n;
+
+            arr = new int[n];
+            top = new int[k];
+            next = new int[n];
+
+            // Initialize all stacks as empty 
+            for (int i = 0; i < k; i++)
+            {
+                top[i] = -1;
+            }
+
+            // Initialize all spaces as free 
+            free = 0;
+            for (int i = 0; i < n - 1; i++)
+            {
+                next[i] = i + 1;
+            }
+
+            next[n - 1] = -1; // -1 is used to indicate end of free list
+        }
+        #endregion
+
+        #region properties
+        public virtual bool Full
+        {
+            get
+            {
+                return (free == -1);
+            }
+        }
+
+        #endregion
+
+        #region public methods
+        public void Push(int item, int sn)
+        {
+            if (Full)
+            {
+                throw new StackOverflowException("Stack Overflow");
+            }
+
+            int i = free; // Store index of first free slot
+            free = next[i]; // Update index of free slot to index of next slot in free list 
+
+            // Update next of top and then top for stack number 'sn' 
+            next[i] = top[sn];
+            top[sn] = i;
+
+            // Put the item in array 
+            arr[i] = item;
+        }
+
+        public int Pop(int sn)
+        {
+            // Underflow check 
+            if (IsEmpty(sn))
+            {
+                throw new StackOverflowException("Stack Underflow");
+            }
+
+            // Find index of top item in stack number 'sn' 
+            int i = top[sn];
+
+            top[sn] = next[i]; // Change top to store next of previous top
+
+            // Attach the previous top to the beginning of free list 
+            next[i] = free;
+            free = i;
+
+            // Return the previous top item 
+            return arr[i];
+        }
+        #endregion
+
+        #region private methods
+        private  bool IsEmpty(int sn)
+        {
+            return (top[sn] == -1);
+        }
+        #endregion
+    }
 }

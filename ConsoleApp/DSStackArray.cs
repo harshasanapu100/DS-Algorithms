@@ -71,7 +71,7 @@ namespace ConsoleApp
 
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("Designing a stack that supports push, pop and retrieving the minimum value in constant time.");
+                Console.WriteLine("Designing a stack that supports Push, pop and retrieving the minimum value in constant time.");
                 MinStack minStack = new MinStack();
                 Console.WriteLine("Creating stack with 5 elements");
                 Console.WriteLine("Pushing below 5 elements to the stack");
@@ -142,6 +142,44 @@ namespace ConsoleApp
                 Console.WriteLine("Reversed Stack");
                 Console.ForegroundColor = ConsoleColor.White;
                 stackReverse.Print();
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Inserting K stacks in one array");
+                Console.WriteLine("Let us create 3 stacks in an array of size 10 ");
+                KStackArray kStackArray = new KStackArray(3, 10);
+                Console.WriteLine("Let us put some items in stack number 2 ");
+                Console.ForegroundColor = ConsoleColor.White;
+                kStackArray.Push(15, 2);
+                kStackArray.Push(45, 2);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Let us put some items in stack number 1 ");
+                Console.ForegroundColor = ConsoleColor.White;
+                kStackArray.Push(17, 1);
+                kStackArray.Push(49, 1);
+                kStackArray.Push(39, 1);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Let us put some items in stack number 2 ");
+                Console.ForegroundColor = ConsoleColor.White;
+                kStackArray.Push(22, 2);
+                kStackArray.Push(35, 2);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Let us put some items in stack number 0");
+                Console.ForegroundColor = ConsoleColor.White;
+                kStackArray.Push(11, 0);
+                kStackArray.Push(9, 0);
+                kStackArray.Push(7, 0);
+
+                Console.WriteLine();
+                Console.WriteLine("Popped element from stack 2 is " + kStackArray.Pop(2));
+                Console.WriteLine("Popped element from stack 1 is " + kStackArray.Pop(1));
+                Console.WriteLine("Popped element from stack 0 is " + kStackArray.Pop(0));
 
                 Console.ReadKey();
             }
