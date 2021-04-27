@@ -46,7 +46,7 @@ namespace ConsoleApp
                 Console.WriteLine("Peek item is: {0}", item);
 
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Reversing a string using Stack");
                 Console.WriteLine("Input is abcd and output should be dcba");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -54,7 +54,7 @@ namespace ConsoleApp
                 Console.WriteLine("Reversed string is: {0}", reverse);
 
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Checking whether the expression is balanced or not");
                 Console.WriteLine("Input is ([{<a>+<b>}])");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -62,7 +62,7 @@ namespace ConsoleApp
                 Console.WriteLine("Is expression balanced: {0}", isBalanced);
 
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Checking whether the expression is having duplicate parenthesis or not");
                 Console.WriteLine("Input is ((x+y))");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -70,7 +70,7 @@ namespace ConsoleApp
                 Console.WriteLine("Is expression have duplicate braces: {0}", isDuplicateBraces);
 
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Designing a stack that supports Push, pop and retrieving the minimum value in constant time.");
                 MinStack minStack = new MinStack();
                 Console.WriteLine("Creating stack with 5 elements");
@@ -86,7 +86,7 @@ namespace ConsoleApp
                 Console.WriteLine("Minimum value in stack is: {0}", minStack.Min());
 
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Implement two stacks in one array.");
                 TwoStacks<int> twoStacks = new TwoStacks<int>(5);
                 Console.WriteLine("Creating stack with 5 elements");
@@ -112,9 +112,9 @@ namespace ConsoleApp
                 Console.WriteLine();
 
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("Reversing a stack with out using any data structure recursively");
-                StackReverse stackReverse = new StackReverse();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Reversing a stack without using any data structure recursively");
+                StackReverseRecursively stackReverse = new StackReverseRecursively();
                 Console.WriteLine("Creating stack with 5 elements");
                 Console.WriteLine("Pushing below 5 elements to the stack");
                 Console.WriteLine("10, 20, 30, 40, 50");
@@ -144,7 +144,7 @@ namespace ConsoleApp
                 stackReverse.Print();
 
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Inserting K stacks in one array");
                 Console.WriteLine("Let us create 3 stacks in an array of size 10 ");
                 KStackArray kStackArray = new KStackArray(3, 10);
@@ -154,7 +154,7 @@ namespace ConsoleApp
                 kStackArray.Push(45, 2);
 
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Let us put some items in stack number 1 ");
                 Console.ForegroundColor = ConsoleColor.White;
                 kStackArray.Push(17, 1);
@@ -162,14 +162,14 @@ namespace ConsoleApp
                 kStackArray.Push(39, 1);
 
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Let us put some items in stack number 2 ");
                 Console.ForegroundColor = ConsoleColor.White;
                 kStackArray.Push(22, 2);
                 kStackArray.Push(35, 2);
 
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Let us put some items in stack number 0");
                 Console.ForegroundColor = ConsoleColor.White;
                 kStackArray.Push(11, 0);
@@ -182,12 +182,80 @@ namespace ConsoleApp
                 Console.WriteLine("Popped element from stack 0 is " + kStackArray.Pop(0));
 
                 Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Letter Combinations of a phone number 234 are");
                 Console.ForegroundColor = ConsoleColor.White;
                 PrintCombinations printCombinations = new PrintCombinations();
                 var combinations = printCombinations.LetterCombinations("234");
                 printCombinations.print(combinations);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Deleting middle element without using any data structure recursively");
+                Console.WriteLine("Pushing 10, 20, 30, 40, 50, 60 elements");
+                DeleteMiddleRecursively deleteMiddleRecursively = new DeleteMiddleRecursively();
+                deleteMiddleRecursively.stack.Push(10);
+                deleteMiddleRecursively.stack.Push(20);
+                deleteMiddleRecursively.stack.Push(30);
+                deleteMiddleRecursively.stack.Push(40);
+                deleteMiddleRecursively.stack.Push(50);
+                deleteMiddleRecursively.stack.Push(60);
+                Console.WriteLine("Printing the elements");
+                Console.ForegroundColor = ConsoleColor.White;
+                deleteMiddleRecursively.Print();
+                Console.WriteLine();
+                Console.WriteLine("Performing delete");
+                deleteMiddleRecursively.DeleteMiddleElement(deleteMiddleRecursively.stack.Count);
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Printing the elements");
+                Console.ForegroundColor = ConsoleColor.White;
+                deleteMiddleRecursively.Print();
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Design a stack with operations on middle element with O(1)");
+                Console.WriteLine("Pushing 10, 20, 30, 40, 50 elements");
+                Console.WriteLine("Printing the elements");
+                Console.ForegroundColor = ConsoleColor.White;
+                OperationsOnMiddleElement operationsOnMiddleElement = new OperationsOnMiddleElement();
+                operationsOnMiddleElement.Push(10);
+                operationsOnMiddleElement.Push(20);
+                operationsOnMiddleElement.Push(30);
+                operationsOnMiddleElement.Push(40);
+                operationsOnMiddleElement.Push(50);
+                operationsOnMiddleElement.Print();
+
+                Console.WriteLine();
+                Console.WriteLine("Middle Element is {0}", operationsOnMiddleElement.FindMiddle());
+
+                Console.WriteLine();
+                Console.WriteLine("Pushing one more item");
+                Console.WriteLine("Printing the elements");
+                operationsOnMiddleElement.Push(60);
+                operationsOnMiddleElement.Print();
+                Console.WriteLine();
+                Console.WriteLine("Middle Element is {0}", operationsOnMiddleElement.FindMiddle());
+
+                Console.WriteLine();
+                Console.WriteLine("Popping one item");
+                operationsOnMiddleElement.Pop();
+                Console.WriteLine("Printing the elements");
+                operationsOnMiddleElement.Print();
+                Console.WriteLine();
+                Console.WriteLine("Middle Element is {0}", operationsOnMiddleElement.FindMiddle());
+
+                Console.WriteLine();
+                Console.WriteLine("Printing the elements");
+                operationsOnMiddleElement.Print();
+                Console.WriteLine();
+                Console.WriteLine("Deleting Middle Element");
+                operationsOnMiddleElement.RemoveMiddle();
+                Console.WriteLine("Printing the elements");
+                operationsOnMiddleElement.Print();
+
+                Console.WriteLine();
+                Console.WriteLine("Middle Element is {0}", operationsOnMiddleElement.FindMiddle());
 
                 Console.ReadKey();
             }

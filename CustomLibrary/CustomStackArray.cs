@@ -317,7 +317,7 @@ namespace CustomLibrary
         #endregion
     }
 
-    public class StackReverse
+    public class StackReverseRecursively
     {
         public Stack<int> stack = new Stack<int>();
 
@@ -468,17 +468,17 @@ namespace CustomLibrary
             StringBuilder sb = new StringBuilder();
             int pos = 0;
 
-            Dictionary<char, char[]> lettersMap  = new Dictionary<char, char[]>();
-            lettersMap .Add('0', new char[] { });
-            lettersMap .Add('1', new char[] { });
-            lettersMap .Add('2', new char[] { 'a', 'b', 'c' });
-            lettersMap .Add('3', new char[] { 'd', 'e', 'f' });
-            lettersMap .Add('4', new char[] { 'g', 'h', 'i' });
-            lettersMap .Add('5', new char[] { 'j', 'k', 'l' });
-            lettersMap .Add('6', new char[] { 'm', 'n', 'o' });
-            lettersMap .Add('7', new char[] { 'p', 'q', 'r', 's' });
-            lettersMap .Add('8', new char[] { 't', 'u', 'v' });
-            lettersMap .Add('9', new char[] { 'w', 'x', 'y', 'z' });
+            Dictionary<char, char[]> lettersMap = new Dictionary<char, char[]>();
+            lettersMap.Add('0', new char[] { });
+            lettersMap.Add('1', new char[] { });
+            lettersMap.Add('2', new char[] { 'a', 'b', 'c' });
+            lettersMap.Add('3', new char[] { 'd', 'e', 'f' });
+            lettersMap.Add('4', new char[] { 'g', 'h', 'i' });
+            lettersMap.Add('5', new char[] { 'j', 'k', 'l' });
+            lettersMap.Add('6', new char[] { 'm', 'n', 'o' });
+            lettersMap.Add('7', new char[] { 'p', 'q', 'r', 's' });
+            lettersMap.Add('8', new char[] { 't', 'u', 'v' });
+            lettersMap.Add('9', new char[] { 'w', 'x', 'y', 'z' });
 
             GenerateCombinations(input, sb, lettersMap, output, pos);
 
@@ -512,5 +512,178 @@ namespace CustomLibrary
                 Console.WriteLine(item);
             }
         }
+    }
+
+    public class DeleteMiddleRecursively
+    {
+        public Stack<int> stack = new Stack<int>();
+
+        public void DeleteMiddleElement(int size, int curr = 0)
+        {
+            if (size == 0 || curr == size)
+            {
+                return;
+            }
+
+            int top = stack.Peek();
+            stack.Pop();
+
+            DeleteMiddleElement(size, curr + 1);
+
+            if (curr != size / 2)
+            {
+                stack.Push(top);
+            }
+        }
+
+        public void Print()
+        {
+            foreach (var item in stack)
+            {
+                Console.WriteLine(item);
+            }
+        }
+    }
+
+    public class OperationsOnMiddleElement
+    {
+        private class Node
+        {
+            public int value;
+            public Node prev;
+            public Node next;
+
+            public Node(int value)
+            {
+                this.value = value;
+                this.next = null;
+                this.prev = null;
+            }
+        }
+
+        private Node top;
+        private Node middle;
+        private int count;
+
+        public void Push(int item)
+        {
+            Node node = new Node(item);
+
+            if (top == null)
+            {
+                top = node;
+                middle = node;
+            }
+            else
+            {
+                node.next = top;
+                top.prev = node;
+                top = node;
+            }
+
+            count++;
+
+            if (count > 1)
+            {
+                if (count % 2 == 0)
+                {
+                    middle = middle.prev;
+                }
+            }
+        }
+
+        public int Pop()
+        {
+            if (count == 0)
+            {
+                throw new StackOverflowException("Stack is underflow");
+            }
+
+            var nodeToDelete = top;
+            int item = nodeToDelete.value;
+            top = top.next;
+            nodeToDelete = null;
+
+            if (top != null)
+            {
+                top.prev = null;
+            }
+
+            count--;
+
+            if (count % 2 != 0)
+            {
+                middle = middle.next;
+            }
+
+            return item;
+        }
+
+        public int FindMiddle()
+        {
+            if (count == 0)
+            {
+                throw new StackOverflowException("Stack is underflow");
+            }
+
+            return middle.value;
+        }
+
+        public void RemoveMiddle()
+        {
+            if (count == 0)
+            {
+                throw new StackOverflowException("Stack is underflow");
+            }
+
+            if(count == 1)
+            {
+                top = middle = null;
+            }
+            else 
+            {
+                var current = top;
+
+                while(current != null)
+                {
+                    if(current.next == middle)
+                    {
+                        current.next = current.next.next;
+                        current.next.prev = current;
+                        count--;
+
+                        if(count % 2 == 0)
+                        {
+                            middle = middle.next;
+                        }
+                        else
+                        {
+                            middle = middle.prev;
+                        }
+                        break;
+                    }
+                    current = current.next;
+                }
+            }
+        }
+
+        public void Print()
+        {
+            int length = count;
+            int[] items = new int[length];
+
+            for (int i = length - 1; i > -1; i--)
+            {
+                items[i] = this.Pop();
+                Console.WriteLine(items[i]);
+            }
+
+
+            for (int i = 0; i < items.Length; i++)
+            {
+                this.Push(items[i]);
+            }
+        }
+
     }
 }
