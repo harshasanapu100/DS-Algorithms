@@ -5,7 +5,7 @@ namespace ConsoleApp
 {
     class DSStackArray
     {
-        static void Main(string[] args)
+        static void DSStackArrayMain(string[] args)
         {
 
             try
