@@ -82,7 +82,9 @@ namespace ConsoleApp
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
     }
