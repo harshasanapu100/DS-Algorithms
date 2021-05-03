@@ -6,7 +6,7 @@ namespace ConsoleApp
 {
     class DSQueueArray
     {
-        static void Main(string[] args)
+        static void DSQueueArrayMain(string[] args)
         {
             try
             {
