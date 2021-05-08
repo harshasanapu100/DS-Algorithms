@@ -42,7 +42,7 @@ namespace CustomLibrary
 
         public int Dequeue()
         {
-            int result = -1;
+            int result;
 
             if (IsEmpty())
             {
@@ -68,23 +68,12 @@ namespace CustomLibrary
 
         public int Peek()
         {
-            int result = -1;
-
             if (IsEmpty())
             {
                 throw new Exception("Queue is underflow");
             }
 
-            if (front == rear)
-            {
-                result = front.value;
-            }
-            else
-            {
-                result = front.value;
-            }
-
-            return result;
+            return front.value;
         }
 
         public void Print()
