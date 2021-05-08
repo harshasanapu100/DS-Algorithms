@@ -6,7 +6,7 @@ namespace ConsoleApp
 {
     class DSQueueArray
     {
-        static void DSQueueArrayMain(string[] args)
+        static void Main(string[] args)
         {
             try
             {
@@ -78,6 +78,27 @@ namespace ConsoleApp
                 front = customQueueArray.Peek();
                 Console.WriteLine("Peek item is: {0}", front);
                 Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine();
+
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Reversing the queue");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                ReverseQueue reverseQueue = new ReverseQueue();
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Printing the elements of queue before reversing");
+                Console.ForegroundColor = ConsoleColor.White;
+                reverseQueue.Print();
+
+                reverseQueue.Reverse();
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Printing the elements of queue after reversing");
+                Console.ForegroundColor = ConsoleColor.White;
+                reverseQueue.Print();
+
+
                 Console.ReadKey();
             }
             catch (Exception ex)

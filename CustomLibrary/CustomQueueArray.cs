@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CustomLibrary
 {
@@ -51,7 +50,7 @@ namespace CustomLibrary
 
         public void Print()
         {
-            int max = incr >= items.Length ? items.Length:rear;
+            int max = incr >= items.Length ? items.Length : rear;
 
             for (int i = front; i < max; i++)
             {
@@ -82,8 +81,24 @@ namespace CustomLibrary
 
     public class ReverseQueue
     {
+        #region private fileds
         Stack<int> stack = new Stack<int>();
-        public Queue<int> Reverse(Queue<int> queue)
+        Queue<int> queue = new Queue<int>();
+        #endregion
+
+        #region constructor
+        public ReverseQueue()
+        {
+            queue.Enqueue(10);
+            queue.Enqueue(20);
+            queue.Enqueue(30);
+            queue.Enqueue(40);
+            queue.Enqueue(50);
+        }
+        #endregion
+
+        #region public methods
+        public void Reverse()
         {
             while (queue.Count != 0)
             {
@@ -94,9 +109,16 @@ namespace CustomLibrary
             {
                 queue.Enqueue(stack.Pop());
             }
-
-            return queue;
         }
+
+        public void Print()
+        {
+            foreach (int item in queue)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        #endregion
 
     }
 }

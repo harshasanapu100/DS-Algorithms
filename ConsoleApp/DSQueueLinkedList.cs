@@ -5,7 +5,7 @@ namespace ConsoleApp
 {
     class DSQueueLinkedList
     {
-        static void Main(string[] args)
+        static void DSQueueLinkedListMain(string[] args)
         {
             try
             {
