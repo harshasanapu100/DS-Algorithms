@@ -686,4 +686,121 @@ namespace CustomLibrary
         }
 
     }
+
+    public class StackWithTwoQueues
+    {
+        #region private fields
+        Queue<int> queue1 = new Queue<int>();
+        Queue<int> queue2 = new Queue<int>();
+        #endregion
+
+        #region public methods
+        public void Push(int item)
+        {
+            queue1.Enqueue(item);
+        }
+
+        public int Pop()
+        {
+            if (IsEmpty())
+            {
+                throw new Exception("Stack is underflow");
+            }
+
+            while (queue1.Count > 1)
+            {
+                queue2.Enqueue(queue1.Dequeue());
+            }
+
+            int res = queue1.Dequeue();
+
+            MoveQueue1ToQueue2();
+
+            return res;
+        }
+
+        public int Peek()
+        {
+            if (IsEmpty())
+            {
+                throw new Exception("Stack is underflow");
+            }
+
+            while (queue1.Count > 1)
+            {
+                queue2.Enqueue(queue1.Dequeue());
+            }
+
+            int res = queue1.Dequeue();
+            queue2.Enqueue(res);
+
+            MoveQueue1ToQueue2();
+
+            return res;
+        }
+        #endregion
+
+        #region private methods
+        private bool IsEmpty()
+        {
+            return queue1.Count == 0;
+        }
+
+        private void MoveQueue1ToQueue2()
+        {
+            var temp = queue2;
+            queue2 = queue1;
+            queue1 = temp;
+        }
+        #endregion
+    }
+
+    public class StackWithSingleQueue
+    {
+        #region private fields
+        Queue<int> queue = new Queue<int>();
+        #endregion
+
+        #region public methods
+        public void Push(int item)
+        {
+            int size = queue.Count;
+
+            queue.Enqueue(item);
+
+            for (int i = 0; i < size; i++)
+            {
+                int x = queue.Dequeue();
+                queue.Enqueue(x);
+            }
+        }
+
+        public int Pop()
+        {
+            if (IsEmpty())
+            {
+                throw new Exception("Stack is underflow");
+            }
+
+            return queue.Dequeue();
+        }
+
+        public int Peek()
+        {
+            if (IsEmpty())
+            {
+                throw new Exception("Stack is underflow");
+            }
+
+            return queue.Peek();
+        }
+        #endregion
+
+        #region private methods
+        private bool IsEmpty()
+        {
+            return queue.Count == 0;
+        }
+        #endregion
+    }
 }

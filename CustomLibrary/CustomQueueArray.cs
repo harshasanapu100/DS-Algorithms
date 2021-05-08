@@ -121,4 +121,125 @@ namespace CustomLibrary
         #endregion
 
     }
+
+    public class QueueWithTwoStacks
+    {
+        #region private fields
+        Stack<int> stack1 = new Stack<int>();
+        Stack<int> stack2 = new Stack<int>();
+        #endregion
+
+        #region public methods
+        public void Enqueue(int item)
+        {
+            stack1.Push(item);
+        }
+
+        public int Dequeue()
+        {
+            if (IsEmpty())
+            {
+                throw new Exception("Queue is underflow");
+            }
+
+            MoveStack1ToStack2();
+
+            return stack2.Pop();
+        }
+
+        public int Peek()
+        {
+            if (IsEmpty())
+            {
+                throw new Exception("Queue is underflow");
+            }
+
+            MoveStack1ToStack2();
+
+            return stack2.Peek();
+        }
+        #endregion
+
+        #region private methods
+        private bool IsEmpty()
+        {
+            return stack1.Count == 0 && stack2.Count == 0;
+        }
+
+        private void MoveStack1ToStack2()
+        {
+            if (stack2.Count == 0)
+            {
+                while (stack1.Count != 0)
+                {
+                    stack2.Push(stack1.Pop());
+                }
+            }
+        }
+        #endregion
+    }
+
+    public class QueueWithOneStacks
+    {
+        #region private fields
+        Stack<int> stack = new Stack<int>();
+        #endregion
+
+        #region public methods
+        public void Enqueue(int item)
+        {
+            if (IsEmpty())
+            {
+                stack.Push(item);
+            }
+            else
+            {
+                InsertAtBottom(item);
+            }
+        }
+
+        public int Dequeue()
+        {
+            if (IsEmpty())
+            {
+                throw new Exception("Queue is underflow"); 
+            }
+
+            return stack.Pop();
+        }
+
+        public int Peek()
+        {
+            if (IsEmpty())
+            {
+                throw new Exception("Queue is underflow");
+            }
+
+            return stack.Peek();
+        }
+        #endregion
+
+        #region private methods
+        private bool IsEmpty()
+        {
+            return stack.Count == 0;
+        }
+
+        private void InsertAtBottom(int item)
+        {
+            if(IsEmpty())
+            {
+                stack.Push(item);
+            }
+            else
+            {
+                int top = stack.Peek();
+                stack.Pop();
+                InsertAtBottom(item);
+                stack.Push(top);
+            }
+        }
+        #endregion
+    }
+
 }

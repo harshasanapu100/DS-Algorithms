@@ -10,11 +10,12 @@ namespace ConsoleApp
         {
             try
             {
+                #region CustomQueueArray
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Implementing the circular queue with Array");
+                Console.WriteLine("Implementing the circular Queue with Array");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Pushing the 10, 20, 30, 40, 50 elements to queue");
+                Console.WriteLine("Pushing the 10, 20, 30, 40, 50 elements to Queue");
                 Console.ForegroundColor = ConsoleColor.White;
 
                 CustomQueueArray customQueueArray = new CustomQueueArray(5);
@@ -31,7 +32,7 @@ namespace ConsoleApp
 
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Removing the element from queue");
+                Console.WriteLine("Removing the element from Queue");
                 Console.ForegroundColor = ConsoleColor.White;
                 int front = customQueueArray.Dequeue();
                 Console.WriteLine("Removed Item is: {0}", front);
@@ -42,7 +43,7 @@ namespace ConsoleApp
 
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Removing one more element from queue");
+                Console.WriteLine("Removing one more element from Queue");
                 Console.ForegroundColor = ConsoleColor.White;
                 front = customQueueArray.Dequeue();
                 Console.WriteLine("Removed Item is: {0}", front);
@@ -79,25 +80,128 @@ namespace ConsoleApp
                 Console.WriteLine("Peek item is: {0}", front);
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine();
+                #endregion
 
+                #region ReverseQueue
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Reversing the queue");
+                Console.WriteLine("Reversing the Queue");
                 Console.ForegroundColor = ConsoleColor.White;
 
                 ReverseQueue reverseQueue = new ReverseQueue();
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Printing the elements of queue before reversing");
+                Console.WriteLine("Printing the elements of Queue before reversing");
                 Console.ForegroundColor = ConsoleColor.White;
                 reverseQueue.Print();
 
                 reverseQueue.Reverse();
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Printing the elements of queue after reversing");
+                Console.WriteLine("Printing the elements of Queue after reversing");
                 Console.ForegroundColor = ConsoleColor.White;
                 reverseQueue.Print();
+                #endregion
 
+                #region QueueWithTwoStacks
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Implemeting Queue with two Stacks");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                QueueWithTwoStacks queueWithTwoStacks = new QueueWithTwoStacks();
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Pushing the 10, 20, 30 elements to Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                queueWithTwoStacks.Enqueue(10);
+                queueWithTwoStacks.Enqueue(20);
+                queueWithTwoStacks.Enqueue(30);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing the element from Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                front = queueWithTwoStacks.Dequeue();
+                Console.WriteLine("Removed Item is: {0}", front);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing one more element from Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                front = queueWithTwoStacks.Dequeue();
+                Console.WriteLine("Removed Item is: {0}", front);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Adding element 40 to the Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                queueWithTwoStacks.Enqueue(40);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing the element from Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                front = queueWithTwoStacks.Dequeue();
+                Console.WriteLine("Removed Item is: {0}", front);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing one more element from Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                front = queueWithTwoStacks.Dequeue();
+                Console.WriteLine("Removed Item is: {0}", front);
+                Console.WriteLine();
+                #endregion
+
+                #region QueueWithOneStacks
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Implemeting Queue with one Stack");
+
+                QueueWithOneStacks queueWithOneStacks = new QueueWithOneStacks();
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Pushing the 10, 20, 30 elements to Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                queueWithOneStacks.Enqueue(10);
+                queueWithOneStacks.Enqueue(20);
+                queueWithOneStacks.Enqueue(30);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing the element from Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                front = queueWithOneStacks.Dequeue();
+                Console.WriteLine("Removed Item is: {0}", front);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing one more element from Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                front = queueWithOneStacks.Dequeue();
+                Console.WriteLine("Removed Item is: {0}", front);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Adding element 40 to the Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                queueWithOneStacks.Enqueue(40);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing the element from Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                front = queueWithOneStacks.Dequeue();
+                Console.WriteLine("Removed Item is: {0}", front);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing one more element from Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                front = queueWithOneStacks.Dequeue();
+                Console.WriteLine("Removed Item is: {0}", front);
+                Console.WriteLine();
+
+                #endregion
 
                 Console.ReadKey();
             }

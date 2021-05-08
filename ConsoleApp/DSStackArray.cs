@@ -10,6 +10,7 @@ namespace ConsoleApp
 
             try
             {
+                #region CustomStackArray
                 CustomStackArray<int> customStack = new CustomStackArray<int>(5);
                 Console.WriteLine("Custom stack can store only 5 elements as we given size");
 
@@ -68,7 +69,9 @@ namespace ConsoleApp
                 Console.ForegroundColor = ConsoleColor.White;
                 bool isDuplicateBraces = customStack.IsExpressionHaveDuplicateBraces("((x+y)+((z)))");
                 Console.WriteLine("Is expression have duplicate braces: {0}", isDuplicateBraces);
+                #endregion
 
+                #region MinStack
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Designing a stack that supports Push, pop and retrieving the minimum value in constant time.");
@@ -84,7 +87,9 @@ namespace ConsoleApp
                 minStack.Push(2);
                 Console.WriteLine();
                 Console.WriteLine("Minimum value in stack is: {0}", minStack.Min());
+                #endregion
 
+                #region TwoStacks
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Implement two stacks in one array.");
@@ -110,7 +115,9 @@ namespace ConsoleApp
                 Console.WriteLine("Poping of stack begining: {0}", twoStacks.Pop1());
                 Console.WriteLine("Poping of stack ending: {0}", twoStacks.Pop2());
                 Console.WriteLine();
+                #endregion
 
+                #region StackReverseRecursively
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Reversing a stack without using any data structure recursively");
@@ -142,7 +149,9 @@ namespace ConsoleApp
                 Console.WriteLine("Reversed Stack");
                 Console.ForegroundColor = ConsoleColor.White;
                 stackReverse.Print();
+                #endregion
 
+                #region KStackArray
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Inserting K stacks in one array");
@@ -180,7 +189,9 @@ namespace ConsoleApp
                 Console.WriteLine("Popped element from stack 2 is " + kStackArray.Pop(2));
                 Console.WriteLine("Popped element from stack 1 is " + kStackArray.Pop(1));
                 Console.WriteLine("Popped element from stack 0 is " + kStackArray.Pop(0));
+                #endregion
 
+                #region PrintCombinations
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Letter Combinations of a phone number 234 are");
@@ -188,7 +199,9 @@ namespace ConsoleApp
                 PrintCombinations printCombinations = new PrintCombinations();
                 var combinations = printCombinations.LetterCombinations("234");
                 printCombinations.print(combinations);
+                #endregion
 
+                #region DeleteMiddleRecursively
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Deleting middle element without using any data structure recursively");
@@ -211,7 +224,9 @@ namespace ConsoleApp
                 Console.WriteLine("Printing the elements");
                 Console.ForegroundColor = ConsoleColor.White;
                 deleteMiddleRecursively.Print();
+                #endregion
 
+                #region OperationsOnMiddleElement
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Design a stack with operations on middle element with O(1)");
@@ -256,6 +271,107 @@ namespace ConsoleApp
 
                 Console.WriteLine();
                 Console.WriteLine("Middle Element is {0}", operationsOnMiddleElement.FindMiddle());
+                #endregion
+
+                #region StackWithTwoQueues
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Implemeting Stack with two Queues");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                StackWithTwoQueues stackWithTwoQueues = new StackWithTwoQueues();
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Pushing the 10, 20, 30 elements to Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                stackWithTwoQueues.Push(10);
+                stackWithTwoQueues.Push(20);
+                stackWithTwoQueues.Push(30);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing the element from Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                int top = stackWithTwoQueues.Pop();
+                Console.WriteLine("Removed Item is: {0}", top);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing one more element from Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                top = stackWithTwoQueues.Pop();
+                Console.WriteLine("Removed Item is: {0}", top);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Adding element 40 to the Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                stackWithTwoQueues.Push(40);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing the element from Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                top = stackWithTwoQueues.Pop();
+                Console.WriteLine("Removed Item is: {0}", top);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing one more element from Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                top = stackWithTwoQueues.Pop();
+                Console.WriteLine("Removed Item is: {0}", top);
+                Console.WriteLine();
+                #endregion
+
+                #region StackWithSingleQueue
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Implemeting Stack with one Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                StackWithSingleQueue stackWithSingleQueue = new StackWithSingleQueue();
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Pushing the 10, 20, 30 elements to Queue");
+                Console.ForegroundColor = ConsoleColor.White;
+                stackWithSingleQueue.Push(10);
+                stackWithSingleQueue.Push(20);
+                stackWithSingleQueue.Push(30);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing the element from Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                top = stackWithSingleQueue.Pop();
+                Console.WriteLine("Removed Item is: {0}", top);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing one more element from Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                top = stackWithSingleQueue.Pop();
+                Console.WriteLine("Removed Item is: {0}", top);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Adding element 40 to the Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                stackWithSingleQueue.Push(40);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing the element from Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                top = stackWithSingleQueue.Pop();
+                Console.WriteLine("Removed Item is: {0}", top);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Removing one more element from Stack");
+                Console.ForegroundColor = ConsoleColor.White;
+                top = stackWithSingleQueue.Pop();
+                Console.WriteLine("Removed Item is: {0}", top);
+                Console.WriteLine();
+                #endregion
 
                 Console.ReadKey();
             }
