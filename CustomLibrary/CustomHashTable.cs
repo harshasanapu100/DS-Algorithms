@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections;
 
 namespace CustomLibrary
 {
@@ -113,6 +113,60 @@ namespace CustomLibrary
         }
 
         #endregion
+    }
 
+    public class CharacterFinder
+    {
+        public char FindFirstNonRepeatedCharacter(string input)
+        {
+            char[] chars = input.ToCharArray();
+            Dictionary<char, int> keyValuePairs = new Dictionary<char, int>();
+
+            foreach (char ch in chars)
+            {
+                var count = keyValuePairs.ContainsKey(ch) ? keyValuePairs[ch] : 0;
+
+                if (count == 0)
+                {
+                    keyValuePairs.Add(ch, count + 1);
+                }
+                else
+                {
+                    keyValuePairs[ch] = count + 1;
+                }
+            }
+
+            foreach (KeyValuePair<char, int> keyValuePair in keyValuePairs)
+            {
+                if (keyValuePair.Value == 1)
+                {
+                    return keyValuePair.Key;
+                }
+            }
+
+            return char.MinValue;
+        }
+
+        public char FindFirstRepeatedCharacter(string input)
+        {
+            char[] chars = input.ToCharArray();
+            Dictionary<char, int> keyValuePairs = new Dictionary<char, int>();
+
+            foreach (char ch in chars)
+            {
+                var count = keyValuePairs.ContainsKey(ch) ? keyValuePairs[ch] : 0;
+
+                if (count == 0)
+                {
+                    keyValuePairs.Add(ch, count + 1);
+                }
+                else
+                {
+                    return ch;
+                }
+            }
+
+            return char.MinValue;
+        }
     }
 }

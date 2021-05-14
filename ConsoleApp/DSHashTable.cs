@@ -76,9 +76,32 @@ namespace ConsoleApp
                 Console.WriteLine("Printing the elements");
                 Console.ForegroundColor = ConsoleColor.White;
                 customHashTable.Print();
+                #endregion
+
+                #region CharacterFinder
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Finding First Non Repeated Character");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                CharacterFinder characterFinder = new CharacterFinder();
+                string input = "a green apple";
+                char output = characterFinder.FindFirstNonRepeatedCharacter(input);
+                Console.WriteLine("input: {0}", input);
+                Console.WriteLine("output: {0}", output);
+
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Finding First Repeated Character");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                input = "a green apple";
+                output = characterFinder.FindFirstRepeatedCharacter(input);
+                Console.WriteLine("input: {0}", input);
+                Console.WriteLine("output: {0}", output);
+                #endregion
 
                 Console.ReadKey();
-                #endregion
             }
             catch (Exception ex)
             {
