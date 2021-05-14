@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections;
 
 namespace CustomLibrary
 {
@@ -167,6 +166,45 @@ namespace CustomLibrary
             }
 
             return char.MinValue;
+        }
+    }
+
+    public class MostFrequentFinder
+    {
+        public int[] items;
+        public MostFrequentFinder(int capacity)
+        {
+            this.items = new int[capacity];
+        }
+        public int FindMostFrequentElement()
+        {
+            Dictionary<int, int> keyValuePairs = new Dictionary<int, int>();
+            int max = -1;
+            int result = items[0];
+
+            foreach (int item in items)
+            {
+                var count = keyValuePairs.ContainsKey(item) ? keyValuePairs[item] : 0;
+                if (count == 0)
+                {
+                    keyValuePairs.Add(item, count + 1);
+                }
+                else
+                {
+                    keyValuePairs[item] = count + 1;
+                }
+            }
+
+            foreach (KeyValuePair<int,int> keyValuePair in keyValuePairs)
+            {
+                if(keyValuePair.Value > max)
+                {
+                    max = keyValuePair.Value;
+                    result = keyValuePair.Key;
+                }
+            }
+
+            return result;
         }
     }
 }

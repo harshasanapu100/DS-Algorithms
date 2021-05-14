@@ -101,6 +101,31 @@ namespace ConsoleApp
                 Console.WriteLine("output: {0}", output);
                 #endregion
 
+                #region MostFrequentFinder
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Finding most frequented item in array");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                MostFrequentFinder mostFrequentFinder = new MostFrequentFinder(8);
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Pushing the 10, 20, 10, 20, 40, 10, 20, 20 elements to array");
+                mostFrequentFinder.items[0] = 10;
+                mostFrequentFinder.items[1] = 20;
+                mostFrequentFinder.items[2] = 30;
+                mostFrequentFinder.items[3] = 20;
+                mostFrequentFinder.items[4] = 40;
+                mostFrequentFinder.items[5] = 10;
+                mostFrequentFinder.items[6] = 20;
+                mostFrequentFinder.items[7] = 20;
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.WriteLine();
+                int value = mostFrequentFinder.FindMostFrequentElement();
+                Console.WriteLine("Most frequented element in the array is: {0}", value);
+                #endregion
+
                 Console.ReadKey();
             }
             catch (Exception ex)
