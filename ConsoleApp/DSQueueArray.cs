@@ -157,54 +157,53 @@ namespace ConsoleApp
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Implemeting Queue with one Stack");
 
-                QueueWithOneStacks queueWithOneStacks = new QueueWithOneStacks();
+                QueueWithOneStack queueWithOneStack = new QueueWithOneStack();
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Pushing the 10, 20, 30 elements to Queue");
                 Console.ForegroundColor = ConsoleColor.White;
-                queueWithOneStacks.Enqueue(10);
-                queueWithOneStacks.Enqueue(20);
-                queueWithOneStacks.Enqueue(30);
+                queueWithOneStack.Enqueue(10);
+                queueWithOneStack.Enqueue(20);
+                queueWithOneStack.Enqueue(30);
 
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Removing the element from Queue");
                 Console.ForegroundColor = ConsoleColor.White;
-                front = queueWithOneStacks.Dequeue();
+                front = queueWithOneStack.Dequeue();
                 Console.WriteLine("Removed Item is: {0}", front);
 
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Removing one more element from Queue");
                 Console.ForegroundColor = ConsoleColor.White;
-                front = queueWithOneStacks.Dequeue();
+                front = queueWithOneStack.Dequeue();
                 Console.WriteLine("Removed Item is: {0}", front);
 
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Adding element 40 to the Queue");
                 Console.ForegroundColor = ConsoleColor.White;
-                queueWithOneStacks.Enqueue(40);
+                queueWithOneStack.Enqueue(40);
 
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Removing the element from Queue");
                 Console.ForegroundColor = ConsoleColor.White;
-                front = queueWithOneStacks.Dequeue();
+                front = queueWithOneStack.Dequeue();
                 Console.WriteLine("Removed Item is: {0}", front);
 
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Removing one more element from Queue");
                 Console.ForegroundColor = ConsoleColor.White;
-                front = queueWithOneStacks.Dequeue();
+                front = queueWithOneStack.Dequeue();
                 Console.WriteLine("Removed Item is: {0}", front);
                 Console.WriteLine();
 
                 #endregion
 
                 Console.ReadKey();
-
             }
             catch (Exception ex)
             {

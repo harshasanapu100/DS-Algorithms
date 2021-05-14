@@ -179,7 +179,7 @@ namespace CustomLibrary
         #endregion
     }
 
-    public class QueueWithOneStacks
+    public class QueueWithOneStack
     {
         #region private fields
         Stack<int> stack = new Stack<int>();
