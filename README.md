@@ -1,4 +1,4 @@
-# DS-Algorithms-Practise
+# DS-Algorithms-Linear
 This repository contains programs related to Linear Data Structures.
 
 **How to use this application?**
