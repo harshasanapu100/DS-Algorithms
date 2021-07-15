@@ -485,24 +485,22 @@ namespace CustomLibrary
             return output;
         }
 
-        private static List<string> GenerateCombinations(string input, StringBuilder sb,
-                Dictionary<char, char[]> lettersMap, List<string> output, int pos)
+         private static void PrintLetterCombinations(string input, int index, Dictionary<char, char[]> letterMap, List<string> output, StringBuilder sb)
         {
-            if (sb.Length == input.Length)
+            if (input.Length == sb.Length)
             {
                 output.Add(sb.ToString());
-                return output;
+                return;
             }
 
-            lettersMap.TryGetValue(input[pos], out char[] values);
+            letterMap.TryGetValue(input[index], out char[] values);
 
-            foreach (var v in values)
+            foreach (char ch in values)
             {
-                sb.Append(v);
-                GenerateCombinations(input, sb, lettersMap, output, pos + 1);
+                sb.Append(ch);
+                PrintLetterCombinations(input, index + 1, letterMap, output, sb);
                 sb.Remove(sb.Length - 1, 1);
             }
-            return output;
         }
 
         public void print(List<string> input)
