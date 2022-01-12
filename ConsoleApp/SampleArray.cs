@@ -7,7 +7,7 @@ namespace ConsoleApp
         static void SampleArrayMain(string[] args)
         {
             #region  Single dimensional array
-            // First way 
+            // First way - 
             int[] numbers = new int[5];
             numbers[0] = 10;
             numbers[1] = 20;
